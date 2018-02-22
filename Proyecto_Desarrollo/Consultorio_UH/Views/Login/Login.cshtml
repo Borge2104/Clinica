@@ -19,7 +19,9 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal">
+@using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+                
                     <div class="box-body">
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
@@ -29,7 +31,7 @@
                                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
                                     <!--<input type="email" class="form-control" id="inputEmail3" placeholder="Email">-->
-                                @Html.TextBoxFor(c=>c.Correo, new { @class = "form-control", placeholder = "Enter Email" })
+                                @Html.TextBoxFor(c=>c.Correo, new { @class = "form-control", placeholder = "Ingresa tu correo" })
                                 </div>
 
                             </div>
@@ -46,7 +48,7 @@
                                     </span>
 
                                     <!--<input type="password" class="form-control" id="inputPassword3" placeholder="Password">-->
-                                    @Html.PasswordFor(p=>p.Password,new { @class = "form-control", placeholder="Password" })
+                                    @Html.PasswordFor(p=>p.Password,new { @class = "form-control", placeholder="Ingresa tu contraseña" })
                                 </div>
 
                             </div>
@@ -68,7 +70,7 @@
                         <asp:Label CssClass="help-block" ID="Lblerror" runat="server"></asp:Label>
                     </div>
                     <!-- /.box-footer -->
-                </form>
+                }
             </div>
             <!-- /.box -->
             <!-- general form elements disabled -->
