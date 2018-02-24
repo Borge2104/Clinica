@@ -87,15 +87,15 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-share"></i> <span>Opciones</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
+                                <span class="pull-right-container pull-right">
+                                    <i class="fa fa-angle-left "></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="Registro_Perfiles.aspx"><i class="fa fa-fw fa-users"></i>Registro Perfiles</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Citas</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Examenes</a></li>
-                                <li><a href="Inicio.aspx"><i class="fa fa-fw fa-sign-out"></i>Salir</a></li>
+                                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-fw fa-sign-out"></i>Salir</a></li>
 
 
                             </ul>
@@ -114,12 +114,8 @@
             <!-- =============================================== -->
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <!-- Main content -->
-                <section class="content"> 
-                    @RenderBody()
-
-                </section>
+                @RenderBody()
+                
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
