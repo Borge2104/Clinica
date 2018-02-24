@@ -20,13 +20,13 @@ namespace Consultorio_UH.App_Start
 
 
             bundles.Add(new StyleBundle("~/bundles/Css").Include(
-                      "~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css",
-                      "~/Content/bower_components/font-awesome/css/font-awesome.min.css",
-                      "~/Content/bower_components/Ionicons/css/ionicons.min.css",
-                      "~/Content/dist/css/AdminLTE.min.css",
-                      "~/Content/dist/css/skins/_all-skins.min.css"));
+                        "~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css",
+                        "~/Content/bower_components/font-awesome/css/font-awesome.min.css",
+                        "~/Content/bower_components/Ionicons/css/ionicons.min.css",
+                        "~/Content/dist/css/AdminLTE.min.css",
+                        "~/Content/dist/css/skins/_all-skins.min.css"));
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
 
     }
