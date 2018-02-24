@@ -6859,6 +6859,8 @@
     <Content Include="Views\Shared\Admi_Vista.cshtml" />
     <Content Include="Views\Administrador\Administrador.cshtml" />
     <Content Include="Views\Registro_Perfiles\Registro_Perfiles.cshtml" />
+    <None Include="Properties\PublishProfiles\UhConsultas - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\UhConsultas - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
