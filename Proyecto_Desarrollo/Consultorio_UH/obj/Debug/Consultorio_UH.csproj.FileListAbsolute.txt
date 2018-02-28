@@ -1,4 +1,3 @@
-C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\ApplicationInsights.config
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\csc.exe
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -57,3 +56,67 @@ C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultori
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Mvc.resources.dll
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.dll
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.pdb
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\ApplicationInsights.config
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\csc.exe
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\vbc.exe
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\VBCSCompiler.exe
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Consultorio_UH.dll.config
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Consultorio_UH.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Consultorio_UH.pdb
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Antlr3.Runtime.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.Web.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.ApplicationInsights.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Newtonsoft.Json.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Helpers.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Mvc.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Optimization.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Razor.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.Deployment.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.Razor.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\WebGrease.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Antlr3.Runtime.pdb
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.Web.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.ApplicationInsights.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\Newtonsoft.Json.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Optimization.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Razor.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.Deployment.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Webpages.Razor.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Helpers.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\System.Web.Mvc.xml
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Razor.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Webpages.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Helpers.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\es\System.Web.Mvc.resources.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.dll
+C:\Users\JMC_2\Documents\GitHub\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.pdb
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\EntityFramework.dll
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\EntityFramework.SqlServer.dll
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\EntityFramework.xml
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\bin\EntityFramework.SqlServer.xml
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Proyecto_Desarrollo\Consultorio_UH\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
