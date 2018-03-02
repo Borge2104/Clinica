@@ -1,0 +1,80 @@
+﻿@model Consultorio_UH.Models.Registro_Perfiles
+
+@{
+    ViewBag.Title = "Usuarios_Registrados";
+    Layout = "~/Views/Shared/Master_Admi.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            
+            <!-- /.box -->
+
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Usuarios Registrados</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Identificacion">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-flat">Buscar</button>
+                            </span>
+                        </div>
+                    <h2></h2>
+                            <div class="col-sm-12">
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 38px;">Cédula</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Nombre</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Apellido P</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Apellido M</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 38px;">Fecha Nac</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 12px;">Sexo</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Estado Civil</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 12px;">Telefono</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Provincia</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Canton</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Distrito</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Direccion</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 12px;">Tipo de Sangre</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">114900659</td>
+                                            <td>Jonathan</td>
+                                            <td>Madrigal</td>
+                                            <td>Solorzano</td>
+                                            <td>30/01/1992</td>
+                                            <td>M</td>
+                                            <td>Soltero</td>
+                                            <td>57140563</td>
+                                            <td>Heredia</td>
+                                            <td>Santo Domingo</td>
+                                            <td>San Vicente</td>
+                                            <td>Del Polideportivo 150mts Norte Residencial Yurusty Casa#25E</td>
+                                            <td>O+</td>
+                                            
+                                        </tr>
+                                        
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+

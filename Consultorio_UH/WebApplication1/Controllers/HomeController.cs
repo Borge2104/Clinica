@@ -8,6 +8,7 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();
@@ -32,22 +33,32 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Login Usuario)
         {
+
+
             if (ModelState.IsValid)
             {
                 if (Usuario.verificar_usuario() == true)
                 {
+
+                    Usuario_logueado.Nombre_apellido = Usuario.Usuario_Logueado();
                     return RedirectToAction("Index", "Admi");
+
 
                 }
 
             }
-
-            return View();
-                ModelState.AddModelError("", "Email/Contraseña son incorrectos.");
-
-           
             
+                if (Usuario.Correo!=null && Usuario.Password !=null)
+                {
+                    ModelState.AddModelError("", "Email/Contraseña son incorrectos.");
+                    
+                }
+
+            return View();  
+
+                  
 
         }
+       
     }
 }

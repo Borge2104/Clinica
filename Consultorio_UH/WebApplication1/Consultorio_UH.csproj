@@ -202,6 +202,7 @@
     </Compile>
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
+    <Compile Include="Models\Usuario_logueado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -7273,6 +7274,7 @@
     <Content Include="Views\Shared\Master_Admi.cshtml" />
     <Content Include="Views\Admi\Index.cshtml" />
     <Content Include="Views\Admi\Registro_Perfiles.cshtml" />
+    <Content Include="Views\Admi\Usuarios_Registrados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
