@@ -40,7 +40,7 @@ namespace Consultorio_UH.Models
         public string tipo_sangre { get; set; }
 
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
-        private DataSet ds;
+        public DataSet ds;
         public int Rol_validar()
         {
             int rol;
@@ -112,6 +112,18 @@ namespace Consultorio_UH.Models
 
             }
         }
+        public void Mostrar_Usuarios()
+        {
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(
+                  "select * from usuarios_registrados", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            ds.Tables[0].Rows[0][1].ToString();
+            conn.Close();
+        }
 
     }
 }
+

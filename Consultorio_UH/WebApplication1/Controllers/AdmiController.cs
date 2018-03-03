@@ -24,14 +24,16 @@ namespace WebApplication1.Controllers
         public ActionResult Usuarios_Registrados()
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
-            return View();
+            Registro_Perfiles UR = new Registro_Perfiles();
+            UR.Mostrar_Usuarios();
+            return View(UR);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registro_Perfiles(Registro_Perfiles Registro)
         {
             
-            string fech;
+           
             if (ModelState.IsValid)
             {
                 ViewBag.Message = Usuario_logueado.Nombre_apellido;

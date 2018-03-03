@@ -29,6 +29,7 @@
                                 <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 38px;">Perfil</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 38px;">Cédula</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Nombre</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Apellido P</th>
@@ -44,7 +45,22 @@
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 12px;">Tipo de Sangre</th>
                                     </thead>
                                     <tbody>
-                                        <tr role="row" class="odd">
+                                      
+                                   @for (int i = 0; i < Model.ds.Tables[0].Rows.Count ; i++)
+                                                                                        {
+                                                                                            <tr role="row" class="odd">
+
+                                                                                               @for (int j = 0; j < Model.ds.Tables[0].Columns.Count; j++)
+                                                                                               {
+                                                                                                <td>
+                                                                                                    @Model.ds.Tables[0].Rows[i][j].ToString()
+                                                                                                </td>
+                                                                            }
+
+                                                                                            </tr>
+                                                                                        }
+
+<tr role="row" class="odd">
                                             <td class="sorting_1">114900659</td>
                                             <td>Jonathan</td>
                                             <td>Madrigal</td>
