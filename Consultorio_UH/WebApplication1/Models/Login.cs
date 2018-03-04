@@ -17,7 +17,7 @@ namespace Consultorio_UH.Models
         [Required(ErrorMessage = "*Contraseña")]
         public string Password { get; set; }
 
-
+        public string Rol { get; set; }
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
         private DataSet ds;
         public Boolean verificar_usuario()
@@ -27,12 +27,13 @@ namespace Consultorio_UH.Models
 
             ds = new DataSet();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select id from usuario where email='" + Correo + "';", conn);
+            SqlCommand cmd = new SqlCommand("select id,tipo from usuario where email='" + Correo + "';", conn);
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
             adap.Fill(ds, "tabla");
             try
             {
                 id = ds.Tables["tabla"].Rows[0]["id"].ToString();
+                Rol = ds.Tables["tabla"].Rows[0]["tipo"].ToString();
 
                 SqlCommand cmd2 = new SqlCommand("select pass from contraseña where usuario_id=" + id + ";", conn);
                 SqlDataAdapter adap2 = new SqlDataAdapter(cmd2);

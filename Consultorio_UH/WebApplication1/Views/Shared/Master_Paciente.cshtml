@@ -1,5 +1,4 @@
-﻿@using System.Web.Optimization;
-
+﻿
 @{
     Layout = null;
 }
@@ -12,7 +11,7 @@
     <title>Consultorio UH</title>
     <!--Css-->
     @Styles.Render("~/bundles/Css")
-    
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 
@@ -48,7 +47,7 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="~/Content/dist/img/admin.png" class="user-image" alt="User Image">
+                                    <img src="~/Content/dist/img/Paciente.png" class="user-image" alt="User Image">
                                     <span class="hidden-xs">@ViewBag.Message</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -73,10 +72,10 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="~/Content/dist/img/Admin.png" class="img-circle" alt="User Image">
+                            <img src="~/Content/dist/img/Paciente.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            
+
                             <p>@ViewBag.Message</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> En Línea</a>
                         </div>
@@ -95,10 +94,9 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="@Url.Action("Registro_Perfiles", "Admi")"><i class="fa fa-gears"></i>Registro Perfiles</a></li>
-                                <li><a href="@Url.Action("Usuarios_Registrados", "Admi")"><i class="fa fa-fw fa-users"></i>Usuarios Registrados</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Citas</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Examenes</a></li>
+                                <li><a href="#"><i class="fa fa-folder-open"></i>Expediente</a></li>
+                                <li><a href="@Url.Action("Citas", "Paciente")"><i class="fa fa-calendar"></i>Citas</a></li>
+                                <li><a href="#"><i class="fa fa-upload"></i>Subir Examenes</a></li>
                                 <li><a href="@Url.Action("Logoff", "Home")"><i class="fa fa-fw fa-sign-out"></i>Salir</a></li>
 
 

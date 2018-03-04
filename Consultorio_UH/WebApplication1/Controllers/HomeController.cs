@@ -41,7 +41,29 @@ namespace WebApplication1.Controllers
                 {
 
                     Usuario_logueado.Nombre_apellido = Usuario.Usuario_Logueado();
-                    return RedirectToAction("Index", "Admi");
+                    switch (Usuario.Rol)
+                    {
+                        case "1":
+
+                            return RedirectToAction("Index", "Paciente");
+                            break;
+                        case "2":
+                            return RedirectToAction("Index", "Admi");
+                            break;
+                        case "3":
+                            return RedirectToAction("Index", "Asistente");
+                            break;
+                        case "4":
+                            return RedirectToAction("Index", "Doctor");
+                            break;
+                        case "5":
+                            return RedirectToAction("Index", "Nutri");
+                            break;
+                        default:
+                            return RedirectToAction("Index", "Home");
+                            break;
+                    }
+                    
 
 
                 }

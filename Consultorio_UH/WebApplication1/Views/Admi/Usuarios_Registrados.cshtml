@@ -47,18 +47,18 @@
                                     <tbody>
                                       
                                    @for (int i = 0; i < Model.ds.Tables[0].Rows.Count ; i++)
-                                                                                        {
-                                                                                            <tr role="row" class="odd">
+                                   {
+                                    <tr role="row" class="odd">
 
-                                                                                               @for (int j = 0; j < Model.ds.Tables[0].Columns.Count; j++)
-                                                                                               {
-                                                                                                <td>
-                                                                                                    @Model.ds.Tables[0].Rows[i][j].ToString()
-                                                                                                </td>
-                                                                            }
+                                   @for (int j = 0; j < Model.ds.Tables[0].Columns.Count; j++)
+                                     {
+                                         <td>
+                                            @Model.ds.Tables[0].Rows[i][j].ToString()
+                                         </td>
+                                     }
 
-                                                                                            </tr>
-                                                                                        }
+                                     </tr>
+                                   }
 
 <tr role="row" class="odd">
                                             <td class="sorting_1">114900659</td>

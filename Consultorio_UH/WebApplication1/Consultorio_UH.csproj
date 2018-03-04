@@ -197,9 +197,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdmiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Citas.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Usuario_logueado.cs" />
@@ -7277,6 +7279,9 @@
     <Content Include="Views\Admi\Index.cshtml" />
     <Content Include="Views\Admi\Registro_Perfiles.cshtml" />
     <Content Include="Views\Admi\Usuarios_Registrados.cshtml" />
+    <Content Include="Views\Shared\Master_Paciente.cshtml" />
+    <Content Include="Views\Paciente\Index.cshtml" />
+    <Content Include="Views\Paciente\Citas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
