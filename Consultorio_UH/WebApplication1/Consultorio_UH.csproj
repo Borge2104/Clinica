@@ -196,7 +196,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdmiController.cs" />
+    <Compile Include="Controllers\AsistenteController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NutriController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -7282,6 +7285,12 @@
     <Content Include="Views\Shared\Master_Paciente.cshtml" />
     <Content Include="Views\Paciente\Index.cshtml" />
     <Content Include="Views\Paciente\Citas.cshtml" />
+    <Content Include="Views\Shared\Master_Asistente.cshtml" />
+    <Content Include="Views\Asistente\Index.cshtml" />
+    <Content Include="Views\Shared\Master_Doctor.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Shared\Master_Nutri.cshtml" />
+    <Content Include="Views\Nutri\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
