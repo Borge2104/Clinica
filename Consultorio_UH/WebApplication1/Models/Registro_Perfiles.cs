@@ -39,6 +39,8 @@ namespace Consultorio_UH.Models
         public string direccion_detallada { get; set; }
         public string tipo_sangre { get; set; }
 
+        public string Cedula_accion { get; set; }
+
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
         public DataSet ds;
         public int Rol_validar()

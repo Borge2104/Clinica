@@ -28,12 +28,13 @@
                             <div class="col-sm-12">
                                 <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                     <thead>
-                                        <tr role="row">
+                                        <tr role="row">                                      
                                             <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 38px;">Perfil</th>
                                             <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 38px;">Cédula</th>
                                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Nombre</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Apellido P</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Apellido M</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Correo</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 38px;">Fecha Nac</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 12px;">Sexo</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"  style="width: 128px;">Estado Civil</th>
@@ -43,20 +44,34 @@
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Distrito</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 128px;">Direccion</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 12px;">Tipo de Sangre</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 38px;">Accion</th>
+                                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 38px;">Accion</th>
                                     </thead>
                                     <tbody>
-                                      
+                                        
+                                  
                                    @for (int i = 0; i < Model.ds.Tables[0].Rows.Count ; i++)
                                    {
                                     <tr role="row" class="odd">
-
+                                        
                                    @for (int j = 0; j < Model.ds.Tables[0].Columns.Count; j++)
                                      {
                                          <td>
                                             @Model.ds.Tables[0].Rows[i][j].ToString()
+                                            
                                          </td>
-                                     }
+                                     
 
+                                   }
+                                        
+                                       
+                                            <td><button type="submit" class="btn btn-info btn-flat">
+                                                        @Html.ActionLink("Eliminar", "Eliminar",new {id= Model.ds.Tables[0].Rows[i][5].ToString()  })
+                                            </button></td>
+                                            <td><button type="submit" class="btn btn-info btn-flat">Actualizar
+                                                         @Html.ActionLink("Actualizar", "Actualizar",new {id= @Model.ds.Tables[0].Rows[i][5].ToString() })
+                                                        </button></td>
+                                            
                                      </tr>
                                    }
 

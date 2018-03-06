@@ -28,6 +28,18 @@ namespace WebApplication1.Controllers
             UR.Mostrar_Usuarios();
             return View(UR);
         }
+
+       
+        public ActionResult Eliminar(string id)
+        {
+            string ced = id;
+            return RedirectToAction("Usuarios_Registrados", "Admi");
+        }
+        public ActionResult Actualizar(string id)
+        {
+
+            return RedirectToAction("Usuarios_Registrados", "Admi");
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Registro_Perfiles(Registro_Perfiles Registro)
@@ -65,5 +77,8 @@ namespace WebApplication1.Controllers
 
 
         }
+       
+
+
     }
 }
