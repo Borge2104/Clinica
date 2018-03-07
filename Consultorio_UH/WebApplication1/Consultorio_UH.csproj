@@ -7291,6 +7291,10 @@
     <Content Include="Views\Doctor\Index.cshtml" />
     <Content Include="Views\Shared\Master_Nutri.cshtml" />
     <Content Include="Views\Nutri\Index.cshtml" />
+    <Content Include="Views\Admi\Buscar_id.cshtml" />
+    <Content Include="Views\Admi\BuscarNombre.cshtml" />
+    <Content Include="Views\Admi\BuscarCorreo.cshtml" />
+    <Content Include="Views\Admi\Actualizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

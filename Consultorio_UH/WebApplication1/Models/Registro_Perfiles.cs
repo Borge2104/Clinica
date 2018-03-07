@@ -92,6 +92,24 @@ namespace Consultorio_UH.Models
             
             
         }
+        public void Actualizar_Usuario()
+        {
+
+
+            conn.Open();
+
+            try
+            {
+                
+                SqlCommand cmd = new SqlCommand("update usuario set tipo = "+Rol_validar()+" where email = '"+Correo+"';", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex) { }
+
+
+
+        }
         public void Insertar_Perfil()
         {
             string id;
@@ -113,7 +131,32 @@ namespace Consultorio_UH.Models
             {
 
             }
+            
         }
+        public void Actualizar_Perfil()
+        {
+            string id;
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select id from usuario where email='" + Correo + "';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            try
+            {
+                id = ds.Tables["tabla"].Rows[0]["id"].ToString();
+
+                SqlCommand cmd3 = new SqlCommand("update perfil set nombre='"+nombre+"',primer_apellido='"+primer_apellido+"',segundo_apellido='"+segundo_apellido+"',sexo='"+sexo+"',estado_civil='"+estado_civil+"',telefono='"+telefono+"',provincia='"+provincia+"',canton='"+canton+"',distrito='"+distrito+"',direccion_detallada='"+direccion_detallada+"' where usuario_id="+id+";", conn); ;
+                cmd3.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            
+        }
+
         public void Mostrar_Usuarios()
         {
             ds = new DataSet();
@@ -126,6 +169,48 @@ namespace Consultorio_UH.Models
             conn.Close();
         }
 
+        public void Buscar_id()
+        {
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(
+                  "select * from usuarios_registrados where Cedula like'%"+identificacion+"%';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");   
+            conn.Close();
+        }
+        public void Buscar_Nombre()
+        {
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(
+                  "select * from usuarios_registrados where Nombre like'%" + nombre + "%';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            conn.Close();
+        }
+        public void Buscar_Correo()
+        {
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(
+                  "select * from usuarios_registrados where Correo like'%" + Correo + "%';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            conn.Close();
+        }
+        public void Eliminar_Usuario(string email)
+        {
+            conn.Open();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("delete from usuario where email='"+email+"';", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (SqlException ex) { }
+        }
     }
 }
 
