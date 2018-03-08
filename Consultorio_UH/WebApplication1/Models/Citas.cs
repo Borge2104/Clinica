@@ -11,5 +11,9 @@ namespace Consultorio_UH.Models
 {
     public class Citas
     {
+        public string servicio { get; set; }
+        public string fecha { get; set; }
+
+        public  DataSet ds;
     }
 }
