@@ -18,7 +18,7 @@ namespace Consultorio_UH.Models
             correo.To.Add(para);
             correo.Subject=("Establecer contraseña UHconsulta");
             correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://localhost:65477/Home/Establecer_password ";
-            //correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://uhconsultas.azurewebsites.net//Home/Establecer_password ";
+            correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://uhconsultas.azurewebsites.net//Home/Establecer_password ";
             correo.IsBodyHtml = true;
             correo.Priority = MailPriority.Normal;
             //Configuracion Servidor smtp
