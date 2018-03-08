@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
         public ActionResult Eliminar(string Correo)
         {
             Registro_Perfiles UR = new Registro_Perfiles();
-            //UR.Eliminar_Usuario(Correo);
+            UR.Eliminar_Usuario(Correo);
             return RedirectToAction("Usuarios_Registrados", "Admi");
         }
 
@@ -100,6 +100,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Registro_Perfiles(Registro_Perfiles Registro)
         {
+            Correo Enviar = new Correo();
             
            
             if (ModelState.IsValid)
@@ -107,25 +108,13 @@ namespace WebApplication1.Controllers
                 ViewBag.Message = Usuario_logueado.Nombre_apellido;
                 Registro.Insertar_Usuario();
                 Registro.Insertar_Perfil();
-              
-                
-               
-            }
-            if ( 
-                Registro.nombre != null &&
-                Registro.primer_apellido != null &&
-                Registro.segundo_apellido != null &&
-                Registro.Correo != null &&
-                Registro.fecha_nac != null &&
-                Registro.provincia != null &&
-                Registro.canton != null &&
-                Registro.distrito != null &&
-                Registro.direccion_detallada != null)
-            {
+                Enviar.para = Registro.Correo;
+                Enviar.Establecer_Password();
                 ModelState.Clear();
-                 ModelState.AddModelError("", "Registrado Satisfactoriamente");
-                
+                ModelState.AddModelError("", "Registrado Satisfactoriamente");
+
             }
+          
 
             
             return View();

@@ -9,5 +9,6 @@ namespace Consultorio_UH.Models
     {
 
         public static string Nombre_apellido { get; set; }
+        public static string Correo_Necesitado { get; set; }
     }
 }

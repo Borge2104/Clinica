@@ -69,7 +69,7 @@ namespace Consultorio_UH.Models
                     return rol;
                     break;
                 default:
-                    rol = 0;
+                    rol = 1;
                     return rol;
                     break;
             }
@@ -78,19 +78,20 @@ namespace Consultorio_UH.Models
         public void Insertar_Usuario()
         {
 
-
+            string rol = Rol_validar().ToString();
             conn.Open();
 
             try
             {
-                SqlCommand cmd = new SqlCommand("Insert into usuario(email, tipo) values('" + Correo + "'," + Rol_validar() + ");", conn);
+                SqlCommand cmd = new SqlCommand("Insert into usuario(email, tipo) values('" + Correo + "'," + Rol_validar().ToString() + ");", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
-            catch (SqlException ex) { }
+            catch (SqlException ex) { string error = ex.Message; }
             
-            
-            
+            conn.Close();
+
+
         }
         public void Actualizar_Usuario()
         {
@@ -101,7 +102,7 @@ namespace Consultorio_UH.Models
             try
             {
                 
-                SqlCommand cmd = new SqlCommand("update usuario set tipo = "+Rol_validar()+" where email = '"+Correo+"';", conn);
+                SqlCommand cmd = new SqlCommand("update usuario set tipo = "+Rol_validar().ToString()+" where email = '"+Correo+"';", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -131,7 +132,7 @@ namespace Consultorio_UH.Models
             {
 
             }
-            
+            conn.Close();
         }
         public void Actualizar_Perfil()
         {
