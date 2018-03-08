@@ -13,6 +13,37 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public ActionResult Pass_Olvidado()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Pass_Olvidado(Establecer_password Datos)
+        {
+            Correo Enviar = new Correo();
+            
+                if (Datos.Verificar_correo() == true)
+                {
+                    
+                        
+                        Enviar.para = Datos.Correo;
+
+                        Enviar.Restablecer_Password();
+                        ModelState.Clear();
+                    ModelState.AddModelError("", "Se ha enviado el enlace para restablecer tu contraseña a tu correo");
+                    return View();
+                    
+                }
+                else
+                {
+                    ModelState.AddModelError("", "El correo ingresado,no es valido");
+                }
+            
+            return View();
+            
+        }
         public ActionResult Modificar_password()
         {
             return View();

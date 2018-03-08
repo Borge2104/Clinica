@@ -65,7 +65,7 @@
                                     @Html.ValidationMessageFor(p => p.Password, String.Empty, new { @style = "color:red;!important" })
                                 </div>
                             </div>
-
+                            
                         </div>
                     <!-- /.box-body -->
                         <div class="box-footer">
@@ -73,7 +73,7 @@
                             
                             <input type="submit" value="Ingresar" class="btn btn-info pull-right" />
 
-
+                            <a href="@Url.Action("Pass_Olvidado", "Home")">Contraseña olvidada</a>
                         </div>
                     <!-- /.box-footer -->
                     }

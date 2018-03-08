@@ -7299,6 +7299,7 @@
     <Content Include="Views\Admi\Actualizar.cshtml" />
     <Content Include="Views\Home\Establecer_password.cshtml" />
     <Content Include="Views\Home\Modificar_password.cshtml" />
+    <Content Include="Views\Home\Pass_Olvidado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
