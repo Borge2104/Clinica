@@ -17,6 +17,7 @@ namespace Consultorio_UH.Models
             correo.From = new MailAddress("uhconsulta@gmail.com");//Correo que usara la aplicacion de base.
             correo.To.Add(para);
             correo.Subject=("Establecer contraseña UHconsulta");
+<<<<<<< HEAD
             //correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://localhost:65477/Home/Establecer_password ";
             correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://uhconsultas.azurewebsites.net/Home/Establecer_password ";
             correo.IsBodyHtml = true;
@@ -42,6 +43,10 @@ namespace Consultorio_UH.Models
             correo.Subject = ("Restablecer contraseña UHconsulta");
             //correo.Body = "Accede al siguiente enlace para Restablecer tu contraseña:  http://localhost:65477/Home/Modificar_password ";
             correo.Body = "Accede al siguiente enlace para Restablecer tu contraseña:  http://uhconsultas.azurewebsites.net/Home/Modificar_password ";
+=======
+            correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://localhost:65477/Home/Establecer_password ";
+            correo.Body = "Accede al siguiente enlace para establecer tu contraseña:  http://uhconsultas.azurewebsites.net//Home/Establecer_password ";
+>>>>>>> 635d4f18977e6b3999cc985aeba608937edc62bc
             correo.IsBodyHtml = true;
             correo.Priority = MailPriority.Normal;
             //Configuracion Servidor smtp
