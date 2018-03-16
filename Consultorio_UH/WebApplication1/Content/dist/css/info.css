@@ -1,0 +1,114 @@
+
+#informacion{
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    padding: 15px;
+    background: url("../Content/dist/img/Aranjuez.jpg");
+    background-position: center;
+    background-size: 100% 100%;
+    outline: 1px solid black;
+    position: relative;
+}
+.parrafo{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    color: azure;
+}
+h1{
+    margin-top: 30px;
+    color: azure;
+    font-size: 2em;
+    position: relative;
+    font-family: 'Roboto Slab 700', serif;
+    
+}
+#capa-black{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    top: 0;
+    left: 0;
+}
+.container-info{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+
+}
+.testimonial{
+    width: 340px;
+    margin: 20px;
+    background:white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 60px 5px black;
+}
+.foto-perf{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    top: -60px;
+    box-shadow: 0px 0px 20px -6px black;
+    
+}
+#pers1{
+    background:white;
+    background-position: center -15px;
+}
+#pers2{
+    background:url(../img/icono-de-la-muestra-del-usuario-s%C3%ADmbolo-de-la-persona-avatar-humano-84527747.jpg);
+    background-position: center;
+    background-size: 200px;
+}
+#pers3{
+    background:url(../img/icono-de-la-muestra-del-usuario-símbolo-de-la-persona-avatar-humano-84527747.jpg);
+    background-position: center;
+    background-size: 200px;
+    
+}
+.testimonial h3{
+    margin-top: -30px;
+}
+.testimonial h4{
+    margin-top: -5px;
+    color: cadetblue;
+    font-weight: 400;
+}
+.testimonial p{
+    margin-top: -3px;
+    font-weight: 100;
+    color: dimgrey;
+}
+.conta-redes{
+    margin-top: 20px;
+}
+.conta-redes a{
+    font-size: 2em;
+    
+}
+.icon-facebook{
+    color: blue;
+}
+.icon-twitter{
+    color: aquamarine;
+}
+.icon-github{
+    color: purple;
+}
+.icon-linkedin{
+    color: green;
+}

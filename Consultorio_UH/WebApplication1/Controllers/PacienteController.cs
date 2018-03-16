@@ -5,20 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using Consultorio_UH.Models;
 using System.Globalization;
+using Consultorio_UH.Security;
 namespace Consultorio_UH.Controllers
 {
     public class PacienteController : Controller
     {
-        // GET: Paciente
+        [CustomAutorizarAtributos(Roles = "1")]
+        
         public ActionResult Index()
         {
-            ViewBag.Message = Usuario_logueado.Nombre_apellido;
+           
             return View();
         }
-
+        [CustomAutorizarAtributos(Roles = "1")]
         public ActionResult Citas()
         {
-            ViewBag.Message = Usuario_logueado.Nombre_apellido;
+           
             return View();
         }
 

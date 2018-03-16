@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "iconos-consultorio";
+  src:url("fonts/iconos-consultorio.eot");
+  src:url("fonts/iconos-consultorio.eot?#iefix") format("embedded-opentype"),
+    url("fonts/iconos-consultorio.woff") format("woff"),
+    url("fonts/iconos-consultorio.ttf") format("truetype"),
+    url("fonts/iconos-consultorio.svg#iconos-consultorio") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "iconos-consultorio" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "iconos-consultorio" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bars:before {
+  content: "\61";
+}
+.icon-medkit:before {
+  content: "\62";
+}
+.icon-facebook:before {
+  content: "\63";
+}
+.icon-twitter:before {
+  content: "\64";
+}
+.icon-linkedin:before {
+  content: "\65";
+}
+.icon-github:before {
+  content: "\66";
+}

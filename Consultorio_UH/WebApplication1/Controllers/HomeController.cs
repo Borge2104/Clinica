@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Consultorio_UH.Models;
+using Consultorio_UH.Security;
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
@@ -116,6 +117,7 @@ namespace WebApplication1.Controllers
         public ActionResult Logoff()
         {
             Session.Clear();
+            Sesion_persistente.Usuario = string.Empty;
             return RedirectToAction("Index", "Home");
         }
         //[HttpGet]
@@ -133,8 +135,8 @@ namespace WebApplication1.Controllers
             {
                 if (Usuario.verificar_usuario() == true)
                 {
-
-                    Usuario_logueado.Nombre_apellido = Usuario.Usuario_Logueado();
+                    Sesion_persistente.Nombre_logueado = Usuario.Usuario_Logueado();
+                    Sesion_persistente.Usuario = Usuario.Correo;
                     switch (Usuario.Rol)
                     {
                         case "1":
@@ -157,8 +159,8 @@ namespace WebApplication1.Controllers
                             return RedirectToAction("Index", "Home");
                             break;
                     }
-                    
 
+                    
 
                 }
 

@@ -211,6 +211,9 @@
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Usuario_logueado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\CustomAutorizarAtributos.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\Sesion_persistente.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -6452,6 +6455,10 @@
     <Content Include="Content\dist\css\alt\AdminLTE-select2.min.css" />
     <Content Include="Content\dist\css\alt\AdminLTE-without-plugins.css" />
     <Content Include="Content\dist\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="Content\dist\css\banner.css" />
+    <Content Include="Content\dist\css\horarios.css" />
+    <Content Include="Content\dist\css\info.css" />
+    <Content Include="Content\dist\css\quienes_somos.css" />
     <Content Include="Content\dist\css\skins\skin-black-light.css" />
     <Content Include="Content\dist\css\skins\skin-black-light.min.css" />
     <Content Include="Content\dist\css\skins\skin-black.css" />
@@ -6478,8 +6485,12 @@
     <Content Include="Content\dist\css\skins\skin-yellow.min.css" />
     <Content Include="Content\dist\css\skins\_all-skins.css" />
     <Content Include="Content\dist\css\skins\_all-skins.min.css" />
+    <Content Include="Content\dist\css\styles_ico.css" />
     <Content Include="Content\dist\img\admin.png" />
+    <Content Include="Content\dist\img\Aranjuez.jpg" />
+    <Content Include="Content\dist\img\Asistente.png" />
     <Content Include="Content\dist\img\Banner Consultorio 1855x400.png" />
+    <Content Include="Content\dist\img\Banner Consultorio cita 1855x400.png" />
     <Content Include="Content\dist\img\Consultorio Uh logo mini.png" />
     <Content Include="Content\dist\img\Consultorio Uh logo.png" />
     <Content Include="Content\dist\img\doctor.png" />
@@ -6487,6 +6498,13 @@
     <Content Include="Content\dist\img\icons.png" />
     <Content Include="Content\dist\img\Inicio administrador.png" />
     <Content Include="Content\dist\img\Inicio administrador_segui.png" />
+    <Content Include="Content\dist\img\Inicio Asistente.png" />
+    <Content Include="Content\dist\img\Inicio Doctor.png" />
+    <Content Include="Content\dist\img\Inicio Nutricionista.png" />
+    <Content Include="Content\dist\img\Inicio Paciente.png" />
+    <Content Include="Content\dist\img\NUTRICIONISTA.png" />
+    <Content Include="Content\dist\img\Paciente.png" />
+    <Content Include="Content\dist\img\PhotobyJesperAggergaardonUnsplash.jpg" />
     <Content Include="Content\dist\img\uh.png" />
     <Content Include="Content\dist\img\uh_01.png" />
     <Content Include="Content\dist\js\adminlte.js" />

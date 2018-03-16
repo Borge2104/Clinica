@@ -5,22 +5,25 @@ using System.Web;
 using System.Web.Mvc;
 using Consultorio_UH.Models;
 using System.Globalization;
+using Consultorio_UH.Security;
+using Consultorio_UH.Models;
 namespace WebApplication1.Controllers
 {
     public class AdmiController : Controller
     {
-        // GET: Admi
+        [CustomAutorizarAtributos(Roles ="2")]
         public ActionResult Index()
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
             return View();
         }
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Registro_Perfiles()
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
             return View();
         }
-
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Usuarios_Registrados()
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
@@ -29,7 +32,7 @@ namespace WebApplication1.Controllers
             return View(UR);
         }
 
-       
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Eliminar(string Correo)
         {
             Registro_Perfiles UR = new Registro_Perfiles();
@@ -37,6 +40,7 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Usuarios_Registrados", "Admi");
         }
 
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Actualizar(string Perfil, string Cedula,string Nombre,string Apellido_P, string Apellido_M, string Correo, string Fecha_Nac, string Sexo,
                                        string Estado_civil, string Telefono, string Provincia, string Canton, string Distrito, string Direccion, string Tipo_sangre)
         {
@@ -62,7 +66,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Actualizar(Registro_Perfiles Registro)
         {
             
@@ -75,6 +79,7 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Usuarios_Registrados", "Admi");
         }
         [HttpPost]
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult Buscar_id(Registro_Perfiles Registro)
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
@@ -83,6 +88,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult BuscarNombre(Registro_Perfiles Registro)
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;
@@ -90,6 +96,7 @@ namespace WebApplication1.Controllers
             return View(Registro);
         }
         [HttpPost]
+        [CustomAutorizarAtributos(Roles = "2")]
         public ActionResult BuscarCorreo(Registro_Perfiles Registro)
         {
             ViewBag.Message = Usuario_logueado.Nombre_apellido;

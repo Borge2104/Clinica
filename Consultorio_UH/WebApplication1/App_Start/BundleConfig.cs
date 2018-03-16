@@ -23,7 +23,12 @@ namespace WebApplication1
                         "~/Content/bower_components/Ionicons/css/ionicons.min.css",
                         "~/Content/dist/css/AdminLTE.min.css",
                         "~/Content/dist/css/skins/_all-skins.min.css",
-                        "~/Content/Fondos/fondo_css.css"));
+                        "~/Content/Fondos/fondo_css.css",
+                        "~/Content/dist/css/banner.css",
+                        "~/Content/dist/css/horarios.css",
+                        "~/Content/dist/css/info.css",
+                        "~/Content/dist/css/quienes_somos.css",
+                        "~/Content/dist/css/styles_ico.css"));
 
             BundleTable.EnableOptimizations = false;
         }

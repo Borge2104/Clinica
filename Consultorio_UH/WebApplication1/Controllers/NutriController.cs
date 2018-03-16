@@ -5,15 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using Consultorio_UH.Models;
 using System.Globalization;
+using Consultorio_UH.Security;
 
 namespace Consultorio_UH.Controllers
 {
     public class NutriController : Controller
     {
-        // GET: Nutri
+        [CustomAutorizarAtributos(Roles = "5")]
         public ActionResult Index()
         {
-            ViewBag.Message = Usuario_logueado.Nombre_apellido;
+           
             return View();
         }
     }

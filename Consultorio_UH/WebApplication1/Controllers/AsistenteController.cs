@@ -4,16 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Consultorio_UH.Models;
-using System.Globalization; 
+using System.Globalization;
+using Consultorio_UH.Security;
 
 namespace Consultorio_UH.Controllers
 {
     public class AsistenteController : Controller
     {
-        // GET: Asistente
+        [CustomAutorizarAtributos(Roles = "3")]
         public ActionResult Index()
         {
-            ViewBag.Message = Usuario_logueado.Nombre_apellido;
+           
             return View();
         }
     }

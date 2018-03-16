@@ -64,7 +64,40 @@ namespace Consultorio_UH.Models
 
             }
         }
+        public Login verificar_usuario_modelo(string Usuario)
+        {
+            string id;
+            string pass;
+            Login Retorno=new Models.Login();
 
+            ds = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select id,tipo from usuario where email='" + Usuario + "';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            try
+            {
+                id = ds.Tables["tabla"].Rows[0]["id"].ToString();
+                Rol = ds.Tables["tabla"].Rows[0]["tipo"].ToString();
+
+                SqlCommand cmd2 = new SqlCommand("select pass from contraseña where usuario_id=" + id + ";", conn);
+                SqlDataAdapter adap2 = new SqlDataAdapter(cmd2);
+                ds.Clear();
+                adap2.Fill(ds, "tabla");
+                pass = ds.Tables["tabla"].Rows[0]["pass"].ToString();
+
+                conn.Close();
+                Retorno.Correo = Usuario;
+                Retorno.Password = pass;
+                Retorno.Rol = Rol;
+                
+            }
+            catch
+            {
+                
+            }
+            return Retorno;
+        }
 
         public   string Usuario_Logueado()
         {
