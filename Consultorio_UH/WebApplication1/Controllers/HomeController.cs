@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El correo ingresado,no es valido");
+                    ModelState.AddModelError("", "Correo inválido");
                 }
             
             return View();
@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El correo ingresado,no es valido");
+                    ModelState.AddModelError("", "Correo inválido");
                 }
             }
             return View();
@@ -104,11 +104,12 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El correo ingresado,no es valido");
+                    ModelState.AddModelError("", "Correo inválido");
                 }
             }
             return View();
         }
+        
         public ActionResult Login()
         {
             return View();

@@ -12,7 +12,7 @@
         <!-- left column -->
         <!--/.col (left) -->
         <!-- right column -->
-        <div class="col-md-8">
+        <div class="col-md-12" style="padding-top: 60px; padding-bottom: 60px; padding-left: 70px; padding-right: 70px">
 
             <!-- Horizontal Form -->
             <div class="box box-info">
@@ -44,28 +44,29 @@
                                 @Html.ValidationMessageFor(c => c.Correo, String.Empty, new { @style = "color:red;!important" })
                             </div>
                         </div>
-                       
 
-                       
+
+
 
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        @Html.ValidationSummary(true, String.Empty, new { @style = "color:black;!important" })
+                        @Html.ValidationSummary(true, String.Empty, new { @style = "color:red;!important" })
 
                         <input type="submit" value="Restablecer" class="btn btn-info pull-right" />
-                        
+
                         <a href="@Url.Action("Login", "Home")">Volver</a>
                     </div>
                         <!-- /.box-footer -->
-                        }
-                       
-                    
+                }
+
+
             </div>
             <!-- /.box -->
             <!-- general form elements disabled -->
             <!-- /.box -->
         </div>
+
         <!--/.col (right) -->
     </div>
     <!-- /.row -->

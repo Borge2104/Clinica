@@ -15,12 +15,12 @@
             <!-- left column -->
             <!--/.col (left) -->
             <!-- right column -->
-            <div class="col-md-8">
-                                                     
+            <div class="col-md-12" style="padding-top: 60px; padding-bottom: 60px; padding-left: 70px; padding-right: 70px">
+
                 <!-- Horizontal Form -->
                 <div class="box box-info">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Iniciar Sesión</h3>
+                    <div class="box-header with-border ">
+                        <h3 class="box-title ">Iniciar Sesión</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -33,16 +33,16 @@
 
                         <div class="box-body">
                             <div class="form-group">
-                                
-                               <label for="inputEmail3" class="col-sm-2 control-label">Correo</label> 
+
+                                <label for="inputEmail3" class="col-sm-2 control-label">Correo</label>
 
                                 <div class="col-sm-10">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 
                                         <!--<input type="email" class="form-control" id="inputEmail3" placeholder="Email">-->
-                                        @Html.TextBoxFor(c => c.Correo, new { @type = "email",@class = "form-control", placeholder = "Ingresa tu correo" })
-                                        
+                                        @Html.TextBoxFor(c => c.Correo, new { @type = "email", @class = "form-control", placeholder = "Ingresa tu correo" })
+
                                     </div>
                                     @Html.ValidationMessageFor(c => c.Correo, String.Empty, new { @style = "color:red;!important" })
                                 </div>
@@ -60,17 +60,17 @@
 
                                         <!--<input type="password" class="form-control" id="inputPassword3" placeholder="Password">-->
                                         @Html.PasswordFor(p => p.Password, new { @class = "form-control", placeholder = "Ingresa tu contraseña" })
-                                        
+
                                     </div>
                                     @Html.ValidationMessageFor(p => p.Password, String.Empty, new { @style = "color:red;!important" })
                                 </div>
                             </div>
-                            
+
                         </div>
                     <!-- /.box-body -->
                         <div class="box-footer">
                             @Html.ValidationSummary(true, String.Empty, new { @style = "color:red;!important" })
-                            
+
                             <input type="submit" value="Ingresar" class="btn btn-info pull-right" />
 
                             <a href="@Url.Action("Pass_Olvidado", "Home")">Contraseña olvidada</a>
@@ -88,6 +88,10 @@
         </div>
         <!-- /.row -->
     </section>
+
+
+
+
 
 
 
