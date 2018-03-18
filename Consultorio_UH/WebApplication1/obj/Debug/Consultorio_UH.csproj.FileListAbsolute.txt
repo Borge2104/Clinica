@@ -298,6 +298,6 @@ C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.dll
 C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.pdb
-C:\Users\Jonathan-Laptop\Git repositorios\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache

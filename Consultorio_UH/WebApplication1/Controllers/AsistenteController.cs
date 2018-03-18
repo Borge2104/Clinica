@@ -17,5 +17,27 @@ namespace Consultorio_UH.Controllers
            
             return View();
         }
+
+        [CustomAutorizarAtributos(Roles = "3")]
+
+        [HttpGet]
+        public ActionResult Citas_preconsulta()
+        {
+
+            return View();
+        }
+        /* [HttpPost]
+         public ActionResult Citas_preconsulta()
+         {
+
+             return View();
+         }
+         */
+        public ActionResult Preconsulta()
+        {
+
+            return View();
+        }
+
     }
 }

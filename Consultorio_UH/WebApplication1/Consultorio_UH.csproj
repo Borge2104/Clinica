@@ -208,6 +208,7 @@
     <Compile Include="Models\Correo.cs" />
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Preconsulta.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Usuario_logueado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -7320,6 +7321,8 @@
     <Content Include="Views\Home\Establecer_password.cshtml" />
     <Content Include="Views\Home\Modificar_password.cshtml" />
     <Content Include="Views\Home\Pass_Olvidado.cshtml" />
+    <Content Include="Views\Asistente\Citas_preconsulta.cshtml" />
+    <Content Include="Views\Asistente\Preconsulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
