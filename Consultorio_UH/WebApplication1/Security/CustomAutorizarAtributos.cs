@@ -16,7 +16,7 @@ namespace Consultorio_UH.Security
         {
 
             if (string.IsNullOrEmpty(Sesion_persistente.Usuario))
-                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Login" }));
             else
             {
                 Login am = new Login();
