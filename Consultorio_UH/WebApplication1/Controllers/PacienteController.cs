@@ -23,6 +23,13 @@ namespace Consultorio_UH.Controllers
            
             return View();
         }
+        [CustomAutorizarAtributos(Roles = "1")]
+        public ActionResult SolicitudCitas()
+        {
+            Servicios_Doctores sd = new Servicios_Doctores();
+            sd.Doctores();
+            return View(sd);
+        }
 
     }
 }

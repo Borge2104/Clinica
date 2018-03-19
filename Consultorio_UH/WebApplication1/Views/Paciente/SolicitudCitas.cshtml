@@ -1,0 +1,97 @@
+﻿@model Consultorio_UH.Models.Servicios_Doctores
+
+@{
+    ViewBag.Title = "Solicitud";
+    Layout = "~/Views/Shared/Master_Paciente.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Solicitar Cita</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Servicios_Doctores", "Paciente", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+
+                        <div class="form-group">
+                            <label for="inputSkills" class="col-sm-2 control-label">Servicio</label>
+
+                            <div class="col-sm-10">
+                                <select @Html.TextBoxFor(s => s.dsDoctores, new { @class = "form-control", style = "width: 194px;" })>
+                                    @for (int i = 0; Model.dsDoctores.Rows.Count > i; i++)
+                                    {
+                                        <option onclick="settearMoneda(@Model.dsDoctores.Rows[i][1])" >@Model.dsDoctores.Rows[i][0]</option>
+                                    }
+                                    <option>Medicina general</option>
+                                    <option>Nutricion</option>
+
+                                </select>
+ 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSkills" class="col-sm-2 control-label">Prueba</label>
+
+                            @Html.TextBoxFor(id => id.Doctor, new { @class = "form-control", placeholder = "id Doctor", style = "width: 156px;" })
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+
+    <script type="text/javascript">
+    function encontrar(paisId) {
+
+        var listadoPaises = @Html.Raw(Json.Encode(Model.Dlist));
+
+        var moneda = "";
+
+        listadoPaises.forEach(function (currentValue) {
+            if (currentValue.Value == paisId){
+                moneda = currentValue["Value"];
+            }
+        });
+
+        return moneda;
+    }
+
+    function settearMoneda(IdPais){
+        var moneda = encontrar(IdPais);
+        $('#Doctor').val(moneda);
+    }
+    </script>
+</section>
+
