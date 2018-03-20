@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -209,6 +210,7 @@
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
+    <Compile Include="Models\Servicios_Doctores.cs" />
     <Compile Include="Models\Usuario_logueado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CustomAutorizarAtributos.cs" />
@@ -7320,6 +7322,7 @@
     <Content Include="Views\Home\Establecer_password.cshtml" />
     <Content Include="Views\Home\Modificar_password.cshtml" />
     <Content Include="Views\Home\Pass_Olvidado.cshtml" />
+    <Content Include="Views\Paciente\SolicitudCitas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

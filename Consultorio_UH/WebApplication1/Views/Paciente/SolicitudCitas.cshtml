@@ -1,0 +1,124 @@
+﻿@model Consultorio_UH.Models.Servicios_Doctores
+
+@{
+    ViewBag.Title = "Solicitud";
+    Layout = "~/Views/Shared/Master_Paciente.cshtml";
+}
+
+
+
+
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Solicitar Cita</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Servicios_Doctores", "Paciente", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                <div class="form-group">
+                    <label for="inputSkills" class="col-sm-2 control-label">Servicio</label>
+                    <div class="col-sm-10">
+                        <select @Html.TextBoxFor(s => s.servicio, new { @class = "form-control", style = "width: 194px;" })>
+                            @for (int i = 0; Model.Slist.Count > i; i++)
+                            {
+                            <option onclick="llenar(@Model.Slist[i].Value)"> @Model.Slist[i].Text </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputSkills" class="col-sm-2 control-label">Doctor</label>
+                    <div class="col-sm-10">
+                        <select @Html.TextBoxFor(s => s.Doctor, new { @class = "form-control", style = "width: 194px;" })></select>
+                    </div>
+                </div>
+               
+                    }
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col(right) -->
+    </div>
+    <!-- /.row -->
+    <script type="text/javascript">
+        function encontrar(IdServicio)
+        {
+            var listadoServicios = @Html.Raw(Json.Encode(Model.Slist));
+            var moneda = "";
+            listadoServicios.forEach(function(currentValue)
+        {
+        if (currentValue.Value == IdServicio)
+        {
+            moneda = currentValue["Value"];
+            FillCombo(IdServicio);
+        }});
+        return moneda;
+        }
+
+    function llenar(IdServicio)
+        {
+           encontrar(IdServicio);
+        }
+    function FillCombo(selectlist)
+        {
+        var combo = document.getElementById("Doctor");
+        var option = document.createElement('option');
+        limpia(combo);
+        if (selectlist == 1) {
+            var listaDoctores = @Html.Raw(Json.Encode(Model.DMGlist));
+        }
+        else {
+            var listaDoctores = @Html.Raw(Json.Encode(Model.DNlist));
+        }
+      // añadir el elemento option y sus valores
+      listaDoctores.forEach(function(doctor)
+        {   
+            option.value = doctor["Value"];
+            option.text = doctor["Text"];
+            combo.options.add(option,0); 
+ 
+       });
+        }
+
+        function limpia(combo)
+        {
+            for(var i=0; i < combo.length; i++)
+            {
+                combo.options.remove(i);
+            }
+
+        }
+    </script>
+</section>
+
+
+ 
