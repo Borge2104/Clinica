@@ -17,9 +17,8 @@ namespace Consultorio_UH.Models
         public int servicio_id { get; set; }
         public DateTime fecha { get; set; }
         public int estado { get; set; }
-        public DataSet ds;
-        SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
-
+        public DataTable ds;
+        private SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
 
         public void insertar()
         {
@@ -44,6 +43,14 @@ namespace Consultorio_UH.Models
             cmd.Parameters["@estado"].Value = 1;
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public void mostrar()
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select * citas from Agenda;", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds);
         }
     }
 }

@@ -42,10 +42,10 @@
                             <label for="inputSkills" class="col-sm-2 control-label">Servicio</label>
 
                             <div class="col-sm-10">
-                                <select @Html.TextBoxFor(s=> s.servicio, new { @class = "form-control", style = "width: 194px;" })>
+                                <select @Html.TextBoxFor(s=> s.servicio_id, new { @class = "form-control", style = "width: 194px;" })>
 
-                                    <option>Medicina general</option>
-                                    <option>Nutricion</option>
+                                    <option value="1">Medicina general</option>
+                                    <option value="2">Nutricion</option>
                                     
                                 </select>
                             </div>

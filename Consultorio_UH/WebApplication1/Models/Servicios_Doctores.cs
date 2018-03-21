@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web; 
 using System.Data; 
 using System.Data.SqlClient; 
 using System.Web.Mvc; 
@@ -16,9 +15,9 @@ namespace Consultorio_UH.Models
         public int servicio { get; set; }
         private DataTable dsDoctores = new DataTable();
         private DataTable dsServicios = new DataTable();
-        public List<SelectListItem> DNlist { get; set; }// Lista de Doctores Medicina General
-        public List<SelectListItem> DMGlist { get; set; }//Lista de Doctores Nutrición
-        public List<SelectListItem> Slist { get; set; }
+        public List<SelectListItem> DNlist;// Lista de Doctores Medicina General
+        public List<SelectListItem> DMGlist;//Lista de Doctores Nutrición
+        public List<SelectListItem> Slist;
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
 
 

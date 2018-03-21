@@ -18,10 +18,20 @@ namespace Consultorio_UH.Controllers
             return View();
         }
         [CustomAutorizarAtributos(Roles = "1")]
+        [HttpPost]
         public ActionResult Citas()
         {
 
             return View();
+        }
+        [CustomAutorizarAtributos(Roles = "1")]
+        [HttpGet]
+        public ViewResult Citas(int id_doctor,int id_servicio)
+        {
+            Citas c = new Citas();
+            c.servicio_id = id_servicio;
+            c.doctor_id = id_doctor;
+            return View(c);
         }
         [CustomAutorizarAtributos(Roles = "1")]
         public ActionResult SolicitudCitas()
@@ -32,5 +42,12 @@ namespace Consultorio_UH.Controllers
             return View(sd);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomAutorizarAtributos(Roles = "1")]
+        public ActionResult SolicitudCitas(Servicios_Doctores sd)
+        {
+            return RedirectToAction("Citas", "Paciente", new { id_doctor = sd.Doctor, id_servicio = sd.servicio });
+        }
     }
 }
