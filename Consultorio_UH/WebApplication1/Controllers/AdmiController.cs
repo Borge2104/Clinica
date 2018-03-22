@@ -72,9 +72,11 @@ namespace WebApplication1.Controllers
             
                 ViewBag.Message = Usuario_logueado.Nombre_apellido;
                 Registro.Actualizar_Usuario();
+                
                 Registro.Actualizar_Perfil();
-            
-           
+                Registro.Actualizar_Usuario();
+                Registro.Insertar_Rol();
+
 
             return RedirectToAction("Usuarios_Registrados", "Admi");
         }
@@ -115,6 +117,7 @@ namespace WebApplication1.Controllers
                 ViewBag.Message = Usuario_logueado.Nombre_apellido;
                 Registro.Insertar_Usuario();
                 Registro.Insertar_Perfil();
+                Registro.Insertar_Rol();
                 Enviar.para = Registro.Correo;
                 Enviar.Establecer_Password();
                 ModelState.Clear();

@@ -43,6 +43,7 @@ namespace Consultorio_UH.Models
 
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
         public DataSet ds;
+        public DataSet dse;
         public int Rol_validar()
         {
             int rol;
@@ -91,7 +92,119 @@ namespace Consultorio_UH.Models
             
             conn.Close();
 
+            
 
+
+        }
+        public void Insertar_Rol()
+        {
+            string comp;
+            string id;
+            string rol = Rol_validar().ToString();
+            ds = new DataSet();
+            dse = new DataSet();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select id from usuario where email='" + Correo + "';", conn);
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds, "tabla");
+            conn.Close();
+            try
+            {
+                id = ds.Tables["tabla"].Rows[0]["id"].ToString();
+
+
+                switch (rol)
+                {
+                    case "1":
+
+                        conn.Open();
+                        SqlCommand comprobar = new SqlCommand("select usuario_id from paciente where usuario_id='" + id + "';", conn);
+                        SqlDataAdapter adap2 = new SqlDataAdapter(comprobar);
+                        adap2.Fill(dse, "tabla");
+                        try {
+                            comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                            if (id.Equals(comp))
+                            {
+                                conn.Close();
+                            }
+                            else
+                            {
+                                SqlCommand cmd1 = new SqlCommand("Insert into paciente(usuario_id)values(" + id + ");", conn); ;
+                                cmd1.ExecuteNonQuery();
+
+                                conn.Close();
+                            }
+
+                        }
+                        catch (SqlException ex) { }
+
+                        conn.Close();
+
+                        break;
+                    case "2":
+
+                        conn.Close();
+                        break;
+                    case "3":
+
+                        conn.Open();
+                        SqlCommand comprobar3 = new SqlCommand("select usuario_id from asistente where usuario_id='" + id + "';", conn);
+                        SqlDataAdapter adap3 = new SqlDataAdapter(comprobar3);
+                        adap3.Fill(dse, "tabla");
+                        try { 
+                        comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                        if (id.Equals(comp))
+                        {
+                            conn.Close();
+                        }
+                        else
+                        {
+                            SqlCommand cmd3 = new SqlCommand("Insert into asistente(usuario_id)values(" + id + ");", conn); ;
+                            cmd3.ExecuteNonQuery();
+
+                            conn.Close();
+                        }
+                            }
+                        catch (SqlException ex) { }
+                        conn.Close();
+                        break;
+                    case "4":
+                        conn.Open();
+                        SqlCommand comprobar4 = new SqlCommand("select usuario_id from doctor where usuario_id='" + id + "';", conn);
+                        SqlDataAdapter adap4 = new SqlDataAdapter(comprobar4);
+                        adap4.Fill(dse, "tabla");
+                        try
+                        {
+                            comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                            if (id.Equals(comp))
+                            {
+                                conn.Close();
+                            }
+                            else
+                            {
+                                SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
+                                cmd4.ExecuteNonQuery();
+
+                                conn.Close();
+                            }
+                        }
+                        catch (SqlException ex) { }
+                        conn.Close();
+                        break;
+                    case "5":
+                        conn.Close();
+                        break;
+                    default:
+                        conn.Close();
+                        break;
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+
+            }
+            conn.Close();
         }
         public void Actualizar_Usuario()
         {
