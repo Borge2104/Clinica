@@ -43,18 +43,25 @@
 
                             <div class="col-sm-10">
                                 <select @Html.TextBoxFor(s=> s.servicio_id, new { @class = "form-control", style = "width: 194px;" })>
-
-                                    <option value="1">Medicina general</option>
+                                    @if (Model.servicio_id == 1)
+                                    {
+                                    <option value="1" selected = "true">Medicina general</option>
                                     <option value="2">Nutricion</option>
-                                    
+                                    }
+                                    else
+                                    {
+                                    <option value="1">Medicina general</option>
+                                    <option value="2" selected = "true">Nutricion</option>
+                                    }
+
                                 </select>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
                         <div class="form-group">
                             <label for="inputSkills" class="col-sm-2 control-label">Fecha</label>
 
@@ -63,7 +70,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    @Html.TextBoxFor(fn => fn.fecha, new {  @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;" })
+                                    @Html.TextBoxFor(fn => fn.fecha, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;", @text = @Model.fecha.ToShortDateString() })
                                     <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
 
 
@@ -74,39 +81,131 @@
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
+                                    <th>Doctor</th>
+                                    <th>Hora</th>
                                     <th>Status</th>
-                                    <th>Reason</th>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    <th>Acción</th>
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
+                                    <td>7:00 AM</td>
+                                    
+                                    @if (Model.ds.Rows.Count != 0)
+                                    {
+                                         for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                         {
+                                             if (Model.ds.Rows[i][1].ToString() == "7:00 AM")
+                                             {
+                                                  <td>
+                                                  <span class="label label-default">Denied</span>
+                                                  </td>
+                                             }
+                                             else if (i== Model.ds.Rows.Count)
+                                             {
+                                                  <td>
+                                                  <span class="label label-info">Disponible</span>
+                                                  </td>
+                                             }
+                                         }
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                         <span class="label label-info">Disponible</span>
+                                         </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-info btn-flat">Registrar</button>
+                                        @Html.ActionLink("insertar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" }, null)
+                                    </td>
+                                    }
+                                   
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>7:30</td>
                                     <td><span class="label label-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>8:00</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>8:30</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>9:00</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>10:00</td>  
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>10:30</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>11:00</td> 
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>11:30</td>  
+                                    <td><span class="label label-danger">Denied</span></td>      
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>11:30</td>                                   
+                                    <td><span class="label label-danger">Denied</span></td>                                 
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>1:00</td>
+                                    
+                                    <td><span class="label label-danger">Denied</span></td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>1:30</td> 
+                                    <td><span class="label label-danger">Denied</span></td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>2:00</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>2:30</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>3:00</td>
+                                    <td><span class="label label-danger">Denied</span></td>        
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>3:30</td>
+                                    <td><span class="label label-danger">Denied</span></td>
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>4:30</td>
+                                    <td><span class="label label-danger">Denied</span></td>
                                 </tr>
                             </tbody>
                         </table>

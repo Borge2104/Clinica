@@ -13,6 +13,7 @@ namespace Consultorio_UH.Models
     {
         public int Doctor { get; set; }
         public int servicio { get; set; }
+        public DateTime fecha { get; set; }
         private DataTable dsDoctores = new DataTable();
         private DataTable dsServicios = new DataTable();
         public List<SelectListItem> DNlist;// Lista de Doctores Medicina General
