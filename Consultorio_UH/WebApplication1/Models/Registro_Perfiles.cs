@@ -44,6 +44,7 @@ namespace Consultorio_UH.Models
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
         public DataSet ds;
         public DataSet dse;
+        public DataSet count;
         public int Rol_validar()
         {
             int rol;
@@ -101,8 +102,10 @@ namespace Consultorio_UH.Models
             string comp;
             string id;
             string rol = Rol_validar().ToString();
+            int contar = 0;
             ds = new DataSet();
             dse = new DataSet();
+            count = new DataSet();
             conn.Open();
             SqlCommand cmd = new SqlCommand("select id from usuario where email='" + Correo + "';", conn);
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
@@ -118,26 +121,47 @@ namespace Consultorio_UH.Models
                     case "1":
 
                         conn.Open();
-                        SqlCommand comprobar = new SqlCommand("select usuario_id from paciente where usuario_id='" + id + "';", conn);
-                        SqlDataAdapter adap2 = new SqlDataAdapter(comprobar);
-                        adap2.Fill(dse, "tabla");
-                        try {
-                            comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
-                            if (id.Equals(comp))
-                            {
-                                conn.Close();
-                            }
-                            else
-                            {
-                                SqlCommand cmd1 = new SqlCommand("Insert into paciente(usuario_id)values(" + id + ");", conn); ;
-                                cmd1.ExecuteNonQuery();
+                        SqlCommand cmd_count = new SqlCommand("select  count(*) from paciente where usuario_id ="+ id + ";", conn);
+                        SqlDataAdapter adap_count = new SqlDataAdapter(cmd_count);
+                        adap_count.Fill(count, "tabla");
+                        
+                        contar= Convert.ToInt32(count.Tables["tabla"].Rows[0][0]);
 
-                                conn.Close();
-                            }
+                        if (contar != 0)
+                        {
+                            SqlCommand comprobar = new SqlCommand("select usuario_id from paciente where usuario_id='" + id + "';", conn);
+                            SqlDataAdapter adap2 = new SqlDataAdapter(comprobar);
+                            adap2.Fill(dse, "tabla");
+                            try
+                            {
 
+                                comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                                if (id.Equals(comp))
+                                {
+                                    conn.Close();
+                                }
+                                else
+                                {
+                                    SqlCommand cmd1 = new SqlCommand("Insert into paciente(usuario_id)values(" + id + ");", conn); ;
+                                    cmd1.ExecuteNonQuery();
+
+                                    conn.Close();
+                                }
+
+                            }
+                            catch (SqlException ex) { }
                         }
-                        catch (SqlException ex) { }
+                        else
+                        {
+                            SqlCommand cmd1 = new SqlCommand("Insert into paciente(usuario_id)values(" + id + ");", conn); ;
+                            cmd1.ExecuteNonQuery();
 
+                            conn.Close();
+                            conn.Close();
+                        }
+
+
+                        
                         conn.Close();
 
                         break;
@@ -146,49 +170,83 @@ namespace Consultorio_UH.Models
                         conn.Close();
                         break;
                     case "3":
-
                         conn.Open();
-                        SqlCommand comprobar3 = new SqlCommand("select usuario_id from asistente where usuario_id='" + id + "';", conn);
-                        SqlDataAdapter adap3 = new SqlDataAdapter(comprobar3);
-                        adap3.Fill(dse, "tabla");
-                        try { 
-                        comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
-                        if (id.Equals(comp))
+                        SqlCommand cmd_count3 = new SqlCommand("select  count(*) from asistente where usuario_id =" + id + ";", conn);
+                        SqlDataAdapter adap_count3 = new SqlDataAdapter(cmd_count3);
+                        adap_count3.Fill(count, "tabla");
+
+                        contar = Convert.ToInt32(count.Tables["tabla"].Rows[0][0]);
+
+                        if (contar != 0)
                         {
-                            conn.Close();
+
+                            SqlCommand comprobar3 = new SqlCommand("select usuario_id from asistente where usuario_id='" + id + "';", conn);
+                            SqlDataAdapter adap3 = new SqlDataAdapter(comprobar3);
+                            adap3.Fill(dse, "tabla");
+                            try
+                            {
+                                comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                                if (id.Equals(comp))
+                                {
+                                    conn.Close();
+                                }
+                                else
+                                {
+                                    SqlCommand cmd3 = new SqlCommand("Insert into asistente(usuario_id)values(" + id + ");", conn); ;
+                                    cmd3.ExecuteNonQuery();
+
+                                    conn.Close();
+                                }
+                            }
+                            catch (SqlException ex) { }
                         }
                         else
                         {
                             SqlCommand cmd3 = new SqlCommand("Insert into asistente(usuario_id)values(" + id + ");", conn); ;
                             cmd3.ExecuteNonQuery();
-
                             conn.Close();
                         }
-                            }
-                        catch (SqlException ex) { }
+                        
                         conn.Close();
                         break;
                     case "4":
                         conn.Open();
-                        SqlCommand comprobar4 = new SqlCommand("select usuario_id from doctor where usuario_id='" + id + "';", conn);
-                        SqlDataAdapter adap4 = new SqlDataAdapter(comprobar4);
-                        adap4.Fill(dse, "tabla");
-                        try
-                        {
-                            comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
-                            if (id.Equals(comp))
-                            {
-                                conn.Close();
-                            }
-                            else
-                            {
-                                SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
-                                cmd4.ExecuteNonQuery();
+                        SqlCommand cmd_count4 = new SqlCommand("select  count(*) from doctor where usuario_id =" + id + ";", conn);
+                        SqlDataAdapter adap_count4 = new SqlDataAdapter(cmd_count4);
+                        adap_count4.Fill(count, "tabla");
 
-                                conn.Close();
+                        contar = Convert.ToInt32(count.Tables["tabla"].Rows[0][0]);
+
+                        if (contar != 0)
+                        {
+                            SqlCommand comprobar4 = new SqlCommand("select usuario_id from doctor where usuario_id='" + id + "';", conn);
+                            SqlDataAdapter adap4 = new SqlDataAdapter(comprobar4);
+                            adap4.Fill(dse, "tabla");
+                            try
+                            {
+                                comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                                if (id.Equals(comp))
+                                {
+                                    conn.Close();
+                                }
+                                else
+                                {
+                                    SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
+                                    cmd4.ExecuteNonQuery();
+
+                                    conn.Close();
+                                }
                             }
+                            catch (SqlException ex) { }
                         }
-                        catch (SqlException ex) { }
+                        else
+                        {
+                            SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
+                            cmd4.ExecuteNonQuery();
+                            conn.Close();
+                        }
+                        
+                        
                         conn.Close();
                         break;
                     case "5":
