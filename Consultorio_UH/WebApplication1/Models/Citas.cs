@@ -18,7 +18,7 @@ namespace Consultorio_UH.Models
         public DateTime fecha { get; set; }
         public int estado { get; set; }
         public string hora { get; set; }
-        public DataTable ds;
+        public DataTable ds = new DataTable();
         private SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
 
         public void insertar()
@@ -49,20 +49,9 @@ namespace Consultorio_UH.Models
         public void mostrar()
         {
             try {
-                SqlCommand cmd = new SqlCommand();
                 conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from Agenda("+doctor_id+",'" + fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + "');", conn);
                 cmd.Connection = conn;
-                cmd.CommandType = CommandType.Text;
-                string sql = "";
-                sql = "select * from Agenda(@doctor_id,@fecha)";
-                cmd.CommandText = sql;
-                // cmd.Parameters.Add("@id_pr", SqlDbType.Int);
-                cmd.Parameters.Add("@doctor_id", SqlDbType.Int);
-                cmd.Parameters.Add("@fecha", SqlDbType.DateTime);
-                cmd.Parameters["@doctor_id"].Value = doctor_id;
-                cmd.Parameters["@fecha"].Value = fecha;
-                cmd.ExecuteNonQuery();
-                cmd.ExecuteNonQuery();
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 adap.Fill(ds);
                 conn.Close(); 
@@ -70,7 +59,6 @@ namespace Consultorio_UH.Models
             catch (Exception e)
             {
                 string a = e.Message;
-                ds = new DataTable();
             } 
         }
     }

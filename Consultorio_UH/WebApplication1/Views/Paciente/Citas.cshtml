@@ -37,12 +37,12 @@
                     <form action="" method="post"></form>
                     @using (Html.BeginForm("Citas", "Paciente", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
-                       
+
                         <div class="form-group">
                             <label for="inputSkills" class="col-sm-2 control-label">Servicio</label>
 
                             <div class="col-sm-10">
-                                <select @Html.TextBoxFor(s=> s.servicio_id, new { @class = "form-control", style = "width: 194px;" })>
+                                <select @Html.TextBoxFor(s => s.servicio_id, new { @class = "form-control", style = "width: 194px;" })>
                                     @if (Model.servicio_id == 1)
                                     {
                                     <option value="1" selected = "true">Medicina general</option>
@@ -89,24 +89,54 @@
                                 <tr>
                                     <td>175</td>
                                     <td>7:00 AM</td>
-                                    
                                     @if (Model.ds.Rows.Count != 0)
                                     {
-                                         for (int i = 0; i < Model.ds.Rows.Count; i++)
-                                         {
-                                             if (Model.ds.Rows[i][1].ToString() == "7:00 AM")
-                                             {
+                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                        {
+                                            if (Model.ds.Rows[i][2].ToString() == "7:00 AM")
+                                            {
                                                   <td>
                                                   <span class="label label-default">Denied</span>
                                                   </td>
-                                             }
-                                             else if (i== Model.ds.Rows.Count)
-                                             {
+                                            }
+                                            else if (i == Model.ds.Rows.Count)
+                                            {
                                                   <td>
                                                   <span class="label label-info">Disponible</span>
                                                   </td>
-                                             }
-                                         }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <span class="label label-info">Disponible</span>
+                                        </td>
+                                    <td>
+                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" },new {@class = "btn btn-info btn-flat"})
+                                    </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>7:30 AM</td>
+                                    @if (Model.ds.Rows.Count != 0)
+                                    {
+                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                        {
+                                            if (Model.ds.Rows[i][2].ToString() == "7:30 AM")
+                                            {
+                                                  <td>
+                                                  <span class="label label-default">Denied</span>
+                                                  </td>
+                                            }
+                                            else if (i == Model.ds.Rows.Count)
+                                            {
+                                                  <td>
+                                                  <span class="label label-info">Disponible</span>
+                                                  </td>
+                                            }
+                                        }
                                     }
                                     else
                                     {
@@ -114,23 +144,40 @@
                                          <span class="label label-info">Disponible</span>
                                          </td>
                                     <td>
-                                        <button type="submit" class="btn btn-info btn-flat">Registrar</button>
-                                        @Html.ActionLink("insertar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" }, null)
+                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:30 AM" },new {@class = "btn btn-info btn-flat"})
                                     </td>
                                     }
-                                   
-                                   
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>7:30</td>
-                                    <td><span class="label label-danger">Denied</span></td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>8:00</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    <td>8:30 AM</td>
+                                     @if (Model.ds.Rows.Count != 0)
+                                    {
+                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                        {
+                                            if (Model.ds.Rows[i][2].ToString() == "8:00 AM")
+                                            {
+                                                  <td>
+                                                  <span class="label label-default">Denied</span>
+                                                  </td>
+                                            }
+                                            else if (i == Model.ds.Rows.Count)
+                                            {
+                                                  <td>
+                                                  <span class="label label-info">Disponible</span>
+                                                  </td>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                         <span class="label label-info">Disponible</span>
+                                         </td>
+                                    <td>
+                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" },new {@class = "btn btn-info btn-flat"})
+                                    </td>
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
