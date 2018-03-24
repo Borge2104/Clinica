@@ -231,7 +231,7 @@ namespace Consultorio_UH.Models
                                 }
                                 else
                                 {
-                                    SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
+                                    SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id,servicio_id)values(" + id +",1);", conn); ;
                                     cmd4.ExecuteNonQuery();
 
                                     conn.Close();
@@ -241,17 +241,15 @@ namespace Consultorio_UH.Models
                         }
                         else
                         {
-                            SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id)values(" + id + ");", conn); ;
+                            SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id,servicio_id)values(" + id + ",1);", conn); ;
                             cmd4.ExecuteNonQuery();
                             conn.Close();
                         }
                         
-                        
                         conn.Close();
                         break;
                     case "5":
-                        conn.Close();
-                        break;
+                       
                     default:
                         conn.Close();
                         break;

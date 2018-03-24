@@ -399,7 +399,6 @@ C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Mi
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csproj.CoreCompileInputs.cache
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csproj.CopyComplete
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.dll

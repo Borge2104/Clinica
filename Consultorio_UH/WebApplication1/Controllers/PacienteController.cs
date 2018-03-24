@@ -62,7 +62,7 @@ namespace Consultorio_UH.Controllers
             c.fecha = fecha;
             c.hora = hora;
             c.insertar();
-            return View();
+            return View("Index");
         }
     }
 }

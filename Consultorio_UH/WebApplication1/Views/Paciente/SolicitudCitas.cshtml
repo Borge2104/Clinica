@@ -114,7 +114,6 @@
     function FillCombo(selectlist)
         {
         var combo = document.getElementById("Doctor");
-        var option = document.createElement('option');
         limpia(combo);
         if (selectlist == 1) {
             var listaDoctores = @Html.Raw(Json.Encode(Model.DMGlist));
@@ -125,6 +124,7 @@
       // añadir el elemento option y sus valores
       listaDoctores.forEach(function(doctor)
         {   
+            var option = document.createElement('option');
             option.value = doctor["Value"];
             option.text = doctor["Text"];
             combo.options.add(option,0); 
