@@ -1,0 +1,80 @@
+﻿@model Consultorio_UH.Models.Citas
+@using System.Globalization;
+@{
+    ViewBag.Title = "Mis Citas";
+    Layout = "~/Views/Shared/Master_Paciente.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Mis Citas</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                   
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Citas", "Paciente", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>Doctor</th>
+                                    <th>Servico</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Estado</th>
+                                </tr>
+                               
+                                    @for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                    {
+                                        <tr>
+                                            @for (int j = 1; j < Model.ds.Columns.Count; j++)
+                                            {
+                                                if (j == 3)
+                                                {
+                                                    <td>@Convert.ToDateTime(@Model.ds.Rows[i][j].ToString()).ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture)</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@Model.ds.Rows[i][j].ToString()</td>
+                                                }
+                                            }
+                                        </tr>
+                                    }
+                                       
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+</section>
+

@@ -61,5 +61,22 @@ namespace Consultorio_UH.Models
                 string a = e.Message;
             } 
         }
+
+        public void MostrarCitasProgramadas()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from PacienteCitas("+paciente_id+") order by fecha DESC", conn);
+                cmd.Connection = conn;
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                adap.Fill(ds);
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                string a = e.Message;
+            }
+        }
     }
 }

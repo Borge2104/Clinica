@@ -62,13 +62,16 @@ namespace Consultorio_UH.Controllers
             c.fecha = fecha;
             c.hora = hora;
             c.insertar();
-            return View("Index");
+            return RedirectToAction("VisualizarCitas", "Paciente"); ;
         }
-        //[CustomAutorizarAtributos(Roles = "1")]
-        //[HttpGet]
-        //public ActionResult VisualizarCitas(int id_paciente, int doctor_id, DateTime fecha, string hora)
-        //{
-           
-        //}
+        [CustomAutorizarAtributos(Roles = "1")]
+        [HttpGet]
+        public ActionResult VisualizarCitas()
+        {
+            Citas c = new Citas();
+            c.paciente_id = Convert.ToInt32(Sesion_persistente.Rol_id);
+            c.MostrarCitasProgramadas();
+            return View(c);
+        }
     }
 }

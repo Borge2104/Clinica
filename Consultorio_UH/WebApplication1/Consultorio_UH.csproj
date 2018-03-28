@@ -7323,6 +7323,7 @@
     <Content Include="Views\Home\Modificar_password.cshtml" />
     <Content Include="Views\Home\Pass_Olvidado.cshtml" />
     <Content Include="Views\Paciente\SolicitudCitas.cshtml" />
+    <Content Include="Views\Paciente\VisualizarCitas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
