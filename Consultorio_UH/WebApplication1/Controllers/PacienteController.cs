@@ -57,12 +57,18 @@ namespace Consultorio_UH.Controllers
         public ActionResult CitasIngreso(int id_paciente,int doctor_id, DateTime fecha,string hora)
         {
             Citas c = new Citas();
-            c.paciente_id = id_paciente;
+            c.paciente_id = Convert.ToInt32(Sesion_persistente.Rol_id);
             c.doctor_id = doctor_id;
             c.fecha = fecha;
             c.hora = hora;
             c.insertar();
             return View("Index");
         }
+        //[CustomAutorizarAtributos(Roles = "1")]
+        //[HttpGet]
+        //public ActionResult VisualizarCitas(int id_paciente, int doctor_id, DateTime fecha, string hora)
+        //{
+           
+        //}
     }
 }

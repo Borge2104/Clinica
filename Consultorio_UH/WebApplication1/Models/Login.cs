@@ -18,6 +18,8 @@ namespace Consultorio_UH.Models
         public string Password { get; set; }
 
         public string Rol { get; set; }
+    
+        public string Rol_id { get; set; }
         SqlConnection conn = new SqlConnection("Data Source=uhclinica.database.windows.net;Initial Catalog=UHConsulta;Persist Security Info=True;User ID=db_root;Password=Uhispano2018");
         private DataSet ds;
         public Boolean verificar_usuario()
@@ -79,7 +81,6 @@ namespace Consultorio_UH.Models
             {
                 id = ds.Tables["tabla"].Rows[0]["id"].ToString();
                 Rol = ds.Tables["tabla"].Rows[0]["tipo"].ToString();
-
                 SqlCommand cmd2 = new SqlCommand("select pass from contraseña where usuario_id=" + id + ";", conn);
                 SqlDataAdapter adap2 = new SqlDataAdapter(cmd2);
                 ds.Clear();
@@ -92,14 +93,14 @@ namespace Consultorio_UH.Models
                 Retorno.Rol = Rol;
                 
             }
-            catch
+            catch (Exception e)
             {
-                
+                string a = e.Message;
             }
             return Retorno;
         }
 
-        public   string Usuario_Logueado()
+        public string Usuario_Logueado()
         {
 
             string Nombre_Apellido;
@@ -119,7 +120,16 @@ namespace Consultorio_UH.Models
                 ds.Clear();
                 adap2.Fill(ds, "tabla");
                 Nombre_Apellido = ds.Tables["tabla"].Rows[0]["nombre"].ToString()+" "+ ds.Tables["tabla"].Rows[0]["primer_apellido"].ToString();
-
+                if (Rol != "2")
+                {
+                    cmd = new SqlCommand("select id from " + Obtener_Tabla(Rol) + " where usuario_id ='" + id + "';", conn);
+                    adap = new SqlDataAdapter(cmd);
+                    ds.Clear();
+                    adap.Fill(ds, "tabla");
+                    Rol_id = ds.Tables["tabla"].Rows[0][0].ToString();
+                }
+                else
+                    Rol_id = "0";
                 conn.Close();
 
                 return Nombre_Apellido;
@@ -129,6 +139,27 @@ namespace Consultorio_UH.Models
                 Nombre_Apellido = "";
                 return Nombre_Apellido;
             }
+        }
+
+        private string Obtener_Tabla(string rol)
+        {
+            string tabla = "";
+            switch (rol)
+                {
+                case "1":
+                    tabla = "paciente";
+                    break;
+                case "2":
+                    tabla = "administrador";
+                    break;
+                case "3":
+                    tabla = "asistente";
+                    break;
+                case "4":
+                    tabla = "doctor";
+                    break;
+            }
+            return tabla;
         }
 
 

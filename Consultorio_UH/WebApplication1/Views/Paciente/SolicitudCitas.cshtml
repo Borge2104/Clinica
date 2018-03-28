@@ -44,7 +44,8 @@
                         <select @Html.TextBoxFor(s => s.servicio, new { @class = "form-control", style = "width: 194px;" })>
                             @for (int i = 0; Model.Slist.Count > i; i++)
             {
-                <option onclick="llenar(@Model.Slist[i].Value)" value=@Model.Slist[i].Value> @Model.Slist[i].Text </option>
+
+                <option onclick="llenar(@Model.Slist[i].Value)" value=@Model.Slist[i].Value > @Model.Slist[i].Text </option>
 }
                         </select>
                     </div>
@@ -134,9 +135,13 @@
 
         function limpia(combo)
         {
-            for(var i=0; i < combo.length; i++)
-            {
-                combo.options.remove(i);
+            var c = combo.length -1 ;
+            var largo = combo.length;
+            if (largo != 0) {
+                for(var i=c; i >= 0; i--)
+                {
+                    combo.options.remove(i);
+                }
             }
 
         }

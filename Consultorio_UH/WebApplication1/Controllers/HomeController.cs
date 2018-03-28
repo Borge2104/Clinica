@@ -138,6 +138,7 @@ namespace WebApplication1.Controllers
                 {
                     Sesion_persistente.Nombre_logueado = Usuario.Usuario_Logueado();
                     Sesion_persistente.Usuario = Usuario.Correo;
+                    Sesion_persistente.Rol_id = Usuario.Rol_id;
                     switch (Usuario.Rol)
                     {
                         case "1":

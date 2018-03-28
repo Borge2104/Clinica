@@ -1,5 +1,5 @@
 ﻿@model Consultorio_UH.Models.Citas
-
+@using System.Globalization;
 @{
     ViewBag.Title = "Citas";
     Layout = "~/Views/Shared/Master_Paciente.cshtml";
@@ -42,7 +42,7 @@
                             <label for="inputSkills" class="col-sm-2 control-label">Servicio</label>
 
                             <div class="col-sm-10">
-                                <select @Html.TextBoxFor(s => s.servicio_id, new { @class = "form-control", style = "width: 194px;" })>
+                                <select @Html.TextBoxFor(s => s.servicio_id, new { @class = "form-control", style = "width: 194px;", @disabled = "true" })>
                                     @if (Model.servicio_id == 1)
                                     {
                                     <option value="1" selected = "true">Medicina general</option>
@@ -67,17 +67,10 @@
 
                             <div class="col-sm-10">
                                 <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    @Html.TextBoxFor(fn => fn.fecha, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;", @text = @Model.fecha.ToShortDateString() })
-                                    <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
-
-
-                                </div>
-                                @Html.ValidationMessageFor(fn => fn.fecha, String.Empty, new { @style = "color:red;!important" })
+                                    <input type="text" value=@Model.fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) class="form-control" disabled ="true"/>
                             </div>
                         </div>
+                            </div>
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
@@ -89,173 +82,619 @@
                                 <tr>
                                     <td>175</td>
                                     <td>7:00 AM</td>
-                                    @if (Model.ds.Rows.Count != 0)
+                                    @{ 
+                                    bool band = true;
+                                    if (Model.ds.Rows.Count != 0)
                                     {
-                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                    
+                                    for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                    {
+                                        if (Model.ds.Rows[i][2].ToString() == "7:00 AM")
                                         {
-                                            if (Model.ds.Rows[i][2].ToString() == "7:00 AM")
-                                            {
                                                   <td>
-                                                  <span class="label label-default">Denied</span>
+                                                  <span class="label label-default btn-default">Ocupada</span>
                                                   </td>
+                                                    <td>
+                                        <button class= "btn btn-default btn-flat", disabled = "true" >Tomar</button>
+                                    </td>
+                                                band = false;
                                                 break;
-                                            }
-                                            else if (i == Model.ds.Rows.Count)
-                                            {
-                                                  <td>
-                                                  <span class="label label-info">Disponible</span>
-                                                  </td>
                                             }
                                         }
                                     }
-                                    else
+                                    if (band)
                                     {
                                         <td>
                                             <span class="label label-info">Disponible</span>
                                         </td>
                                     <td>
-                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" },new {@class = "btn btn-info btn-flat"})
+                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" }, new { @class = "btn btn-info btn-flat" })
                                     </td>
                                     }
+                                        }
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>7:30 AM</td>
-                                    @if (Model.ds.Rows.Count != 0)
-                                    {
-                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
                                         {
-                                            if (Model.ds.Rows[i][2].ToString() == "7:30 AM")
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
                                             {
-                                                  <td>
-                                                  <span class="label label-default">Denied</span>
-                                                  </td>
-                                                break;
-                                            }
-                                            else if (i == Model.ds.Rows.Count)
-                                            {
-                                                  <td>
-                                                  <span class="label label-info">Disponible</span>
-                                                  </td>
+                                                if (Model.ds.Rows[i][2].ToString() == "7:30 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
                                             }
                                         }
-                                    }
-                                    else
-                                    {
-                                        <td>
-                                         <span class="label label-info">Disponible</span>
-                                         </td>
-                                    <td>
-                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:30 AM" },new {@class = "btn btn-info btn-flat"})
-                                    </td>
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:30 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
                                     }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>8:30 AM</td>
-                                     @if (Model.ds.Rows.Count != 0)
-                                    {
-                                        for (int i = 0; i < Model.ds.Rows.Count; i++)
-                                        {
-                                            if (Model.ds.Rows[i][2].ToString() == "8:00 AM")
-                                            {
-                                                  <td>
-                                                  <span class="label label-default">Denied</span>
-                                                  </td>
-                                                 break;
-                                             }
-                                             else if (i == Model.ds.Rows.Count)
+                                    <td>8:00 AM</td>
+                                     @{
+                                         band = true;
+                                         if (Model.ds.Rows.Count != 0)
+                                         {
+
+                                             for (int i = 0; i < Model.ds.Rows.Count; i++)
                                              {
-                                                  <td>
-                                                  <span class="label label-info">Disponible</span>
-                                                  </td>
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <td>
-                                         <span class="label label-info">Disponible</span>
-                                         </td>
-                                    <td>
-                                        @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "7:00 AM" },new {@class = "btn btn-info btn-flat"})
-                                    </td>
+                                                 if (Model.ds.Rows[i][2].ToString() == "8:00 AM")
+                                                 {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                     band = false;
+                                                     break;
+                                                 }
+                                             }
+                                         }
+                                         if (band)
+                                         {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "8:00 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                         }
                                     }
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>8:30 AM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "8:30 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "8:30 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                    
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>9:00 AM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "9:00 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "9:00 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>10:00 AM</td>  
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    <td>9:30 AM</td>  
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "9:30 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "9:30 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>10:30 AM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    <td>10:00 AM</td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "10:00 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "10:00 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>11:00 AM</td> 
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    <td>10:30 AM</td> 
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "10:30 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "10:30 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>11:30 AM</td>  
-                                    <td><span class="label label-danger">Denied</span></td>      
+                                    <td>11:00 AM</td>  
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "11:00 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "11:00 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }      
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>11:30 AM</td>                                   
-                                    <td><span class="label label-danger">Denied</span></td>                                 
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "11:30 AM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "11:00 AM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }                             
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>1:00 PM</td>
                                     
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "1:00 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "1:00 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                    
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>1:30 PM</td> 
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "1:30 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "1:30 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                    
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>2:00 PM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "2:00 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "2:00 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                    
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>2:30 PM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "2:30 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "2:30 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>3:00 PM</td>
-                                    <td><span class="label label-danger">Denied</span></td>        
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "3:00 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "3:00 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }  
                                 </tr>
                                 <tr>
                                     <td>175</td>
                                     <td>3:30 PM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "3:30 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "3:30 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                                 <tr>
                                     <td>175</td>
-                                    <td>4:30 PM</td>
-                                    <td><span class="label label-danger">Denied</span></td>
+                                    <td>4:00 PM</td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "4:00 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "4:00 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
+                                </tr>
+                                <tr>
+                                    <td>175</td>
+                                    <td>4:00 PM</td>
+                                    @{
+                                        band = true;
+                                        if (Model.ds.Rows.Count != 0)
+                                        {
+
+                                            for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                            {
+                                                if (Model.ds.Rows[i][2].ToString() == "4:30 PM")
+                                                {
+                                                    <td>
+                                                        <span class="label label-default">Ocupado</span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                    </td>
+                                                    band = false;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (band)
+                                        {
+                                            <td>
+                                                <span class="label label-info">Disponible</span>
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Tomar", "CitasIngreso", "Paciente", new { id_paciente = 1, doctor_id = Model.doctor_id, Fecha = Model.fecha, hora = "4:30 PM" }, new { @class = "btn btn-info btn-flat" })
+                                            </td>
+                                        }
+                                    }
                                 </tr>
                             </tbody>
                         </table>
