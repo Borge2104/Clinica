@@ -17,5 +17,33 @@ namespace Consultorio_UH.Controllers
            
             return View();
         }
+
+        [CustomAutorizarAtributos(Roles = "3")]
+        public ActionResult MostrarCitas()
+        {
+            Preconsulta p = new Preconsulta();
+            p.fecha = DateTime.Now;        
+            return View(p);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomAutorizarAtributos(Roles = "3")]
+        public ActionResult MostrarCitas(Preconsulta p)
+        {
+            return RedirectToAction("Citas", "Asistente", new { fecha = p.fecha, hora = p.hora });
+        }
+
+        public ActionResult Citas(DateTime fecha, string hora)
+        {
+            Preconsulta p = new Preconsulta();
+            p.fecha = fecha;
+            p.hora = hora;
+            p.mostrar();
+            return View(p);
+
+        }
+
+
     }
 }

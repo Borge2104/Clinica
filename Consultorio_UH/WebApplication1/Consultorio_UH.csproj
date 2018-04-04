@@ -209,6 +209,7 @@
     <Compile Include="Models\Correo.cs" />
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Preconsulta.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Servicios_Doctores.cs" />
     <Compile Include="Models\Usuario_logueado.cs" />
@@ -7324,6 +7325,8 @@
     <Content Include="Views\Home\Pass_Olvidado.cshtml" />
     <Content Include="Views\Paciente\SolicitudCitas.cshtml" />
     <Content Include="Views\Paciente\VisualizarCitas.cshtml" />
+    <Content Include="Views\Asistente\MostrarCitas.cshtml" />
+    <Content Include="Views\Asistente\Citas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

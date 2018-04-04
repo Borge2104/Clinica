@@ -403,7 +403,6 @@ C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csproj.CopyComplete
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.dll
 C:\Users\serma\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.pdb
-C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\ApplicationInsights.config
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\roslyn\csc.exe
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -504,3 +503,4 @@ C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Mi
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.dll
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.pdb
+C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache
