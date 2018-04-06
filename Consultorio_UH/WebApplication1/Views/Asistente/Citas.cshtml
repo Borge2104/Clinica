@@ -28,7 +28,7 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Solicitar Cita</h3>
+                    <h3 class="box-title">Citas</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -70,7 +70,7 @@
                                 @for (int i = 0; i < Model.ds.Rows.Count; i++)
                                 {
                                     <tr>
-                                        @for (int j = 1; j < Model.ds.Columns.Count; j++)
+                                        @for (int j = 1; j < Model.ds.Columns.Count-1; j++)
                                         {
                                             if (j == 3)
                                             {
@@ -80,6 +80,34 @@
                                             {
                                                 <td>@Model.ds.Rows[i][j].ToString()</td>
                                             }
+                                          
+                                        }
+                                        @switch (Model.ds.Rows[i][5].ToString())
+                                        {
+                                        case "1":
+                                        <td>
+                                            <span class="label label-info">Disponible</span>
+                                        </td>
+                                        <td>
+                                                @Html.ActionLink("Tomar", "Ingreso", "Asistente", new { id_cita = @Model.ds.Rows[i][0] }, new { @class = "btn btn-info btn-flat" })
+                                        </td>
+                                            break;
+                                        case "2":
+                                        <td>
+                                           <span class="label label-warning">En proceso</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                        </td>
+                                            break;
+                                        case "3":
+                                        <td>
+                                            <span class="label label-default">Atendido</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                        </td>
+                                            break;
                                         }
                                     </tr>
                                 }

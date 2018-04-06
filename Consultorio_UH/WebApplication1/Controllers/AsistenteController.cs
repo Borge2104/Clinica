@@ -44,6 +44,23 @@ namespace Consultorio_UH.Controllers
 
         }
 
+        public ActionResult Ingreso(int id_cita)
+        {
+            Preconsulta p = new Preconsulta();
+            p.cita_id = id_cita;
+            return View(p);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomAutorizarAtributos(Roles = "3")]
+        public ActionResult Ingreso(Preconsulta p)
+        {
+            p.fecha = DateTime.Now;
+            p.asistente_id = Convert.ToInt32(Sesion_persistente.Rol_id);
+            p.ingreso();
+            return RedirectToAction("MostrarCitas","Asistente");
+        }
 
     }
 }

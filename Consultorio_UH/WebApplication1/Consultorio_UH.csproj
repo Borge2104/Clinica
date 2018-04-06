@@ -7327,6 +7327,7 @@
     <Content Include="Views\Paciente\VisualizarCitas.cshtml" />
     <Content Include="Views\Asistente\MostrarCitas.cshtml" />
     <Content Include="Views\Asistente\Citas.cshtml" />
+    <Content Include="Views\Asistente\Ingreso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

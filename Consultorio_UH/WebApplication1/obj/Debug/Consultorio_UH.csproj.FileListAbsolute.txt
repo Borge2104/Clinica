@@ -503,4 +503,3 @@ C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Mi
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.dll
 C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.pdb
-C:\Users\JMC_2\Documents\GitHub\Clinica\Consultorio_UH\WebApplication1\obj\Debug\Consultorio_UH.csprojResolveAssemblyReference.cache

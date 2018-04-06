@@ -1,0 +1,101 @@
+﻿@using System.Web.Optimization;
+@model Consultorio_UH.Models.Preconsulta
+
+@{
+    ViewBag.Title = "Registro_Preconsulta";
+    Layout = "~/Views/Shared/Master_Asistente.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12" style="padding-left: 70px; padding-right: 70px;">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Datos del paciente</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    @Html.ValidationSummary(true, String.Empty, new { @style = "color:green;!important" })
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Ingreso", "Asistente", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                    @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(id => id.cita_id, new { @class = "form-control", style = "display:none;" })
+
+                        <div class="form-group">
+
+                            <label for="inputName" class="col-sm-5 control-label">Peso</label>
+
+                            <div class="col-sm-7">
+                                @Html.TextBoxFor(id => id.peso, new { @class = "form-control", placeholder = "0,0 Kg", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(id => id.peso, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Estatura</label>
+
+                            <div class="col-sm-7">
+
+                                @Html.TextBoxFor(id => id.estatura, new { @class = "form-control", placeholder = "0,0 cm", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(id => id.estatura, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Presion Arterial</label>
+
+                            <div class="col-sm-7">
+
+                                @Html.TextBoxFor(id => id.presion, new { @class = "form-control", placeholder = "mm/Hg", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(id => id.presion, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-sm-1"></span>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(x => x.motivo, new { @class = "form-control", placeholder = "Motivo de consulta", rows = "5" })
+                               
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-7">
+
+                                <button type="submit" class="btn btn-info btn-flat">Ingresar Datos</button>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+</section>
+
