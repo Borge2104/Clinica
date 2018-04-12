@@ -16,5 +16,58 @@ namespace Consultorio_UH.Controllers
             
             return View();
         }
+
+        [CustomAutorizarAtributos(Roles = "4")]
+        public ActionResult MostrarCitas()
+        {
+            Preconsulta p = new Preconsulta();
+            p.fecha = DateTime.Now;
+            return View(p);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomAutorizarAtributos(Roles = "4")]
+        public ActionResult MostrarCitas(Preconsulta p)
+        {
+            return RedirectToAction("Citas", "Doctor", new { fecha = p.fecha, hora = p.hora });
+        }
+
+        public ActionResult Citas(DateTime fecha, string hora)
+        {
+            Preconsulta p = new Preconsulta();
+            p.fecha = fecha;
+            p.hora = hora;
+            p.mostrar();
+            return View(p);
+
+        }
+        public ActionResult Ingreso(/*int id_cita*/)
+        {
+
+           /* Preconsulta p = new Preconsulta();
+            p.cita_id = id_cita;
+            return View(p);*/
+            
+
+            return View();
+
+
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomAutorizarAtributos(Roles = "4")]
+        public ActionResult Ingreso(Preconsulta p)
+        {
+            if (ModelState.IsValid)
+            {
+                p.fecha = DateTime.Now;
+                p.asistente_id = Convert.ToInt32(Sesion_persistente.Rol_id);
+                p.ingreso();
+                return RedirectToAction("MostrarCitas", "Doctor");
+            }
+            return View();
+        }
     }
 }

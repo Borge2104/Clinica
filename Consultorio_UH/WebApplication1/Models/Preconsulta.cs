@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Globalization;
-
+using System.ComponentModel.DataAnnotations;
 namespace Consultorio_UH.Models
 {
     public class Preconsulta
@@ -15,10 +15,16 @@ namespace Consultorio_UH.Models
         public int cita_id { get; set; }
         public int asistente_id { get; set; }
         public DateTime fecha { get; set; }
+        [Required(ErrorMessage = "*Motivo")]
         public string motivo{ get; set; }
         public string hora { get; set; }
+        [Required(ErrorMessage = "*Peso")]
+        [Range(0.1, 200.0, ErrorMessage = "*Proporcione una medida correcta 0.0 kg")]
         public decimal peso  { get; set; }
+        [Required(ErrorMessage = "*Estatura")]
+        [Range(0.1, 4.0, ErrorMessage = "*Proporcione una medida correcta 0.0 m")]
         public decimal estatura { get; set; }
+        [Required(ErrorMessage = "*Presion")]
         public string presion { get; set; }
 
         public DataTable ds = new DataTable();

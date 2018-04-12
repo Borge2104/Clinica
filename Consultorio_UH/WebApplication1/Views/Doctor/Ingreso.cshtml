@@ -1,0 +1,207 @@
+﻿
+@using System.Web.Optimization;
+@model Consultorio_UH.Models.Consulta
+
+@{
+    ViewBag.Title = "Ingreso";
+    Layout = "~/Views/Shared/Master_Doctor.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12" style="padding-left: 70px; padding-right: 70px;">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Preconsulta</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                   
+                    <form action="" method="post"></form>
+                   
+                       
+                        <div class="form-group">
+                            <span class="col-sm-1"></span>
+                            <div class="col-sm-10">
+                                
+                                <textarea class = "form-control" placeholder = "Motivo de consulta" rows = "5" disabled = "disabled"></textarea>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputName" class="col-sm-5 control-label">Peso</label>
+
+                            <div class="col-sm-7">
+                                <text class = "form-control"placeholder = "0,0 Kg" style = "width: 156px;" disabled = "disabled"></text>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Estatura</label>
+
+                            <div class="col-sm-7">
+                                <text class="form-control" placeholder="0,0 m" style="width: 156px;" disabled="disabled"></text>
+                                
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Presion Arterial</label>
+
+                            <div class="col-sm-7">
+                                <text class="form-control" placeholder="mm/Hg" style="width: 156px;" disabled="disabled"></text>
+                               
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-7">
+
+                              
+
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12" style="padding-left: 70px; padding-right: 70px;">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Consulta y tratamiento</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    @Html.ValidationSummary(true, String.Empty, new { @style = "color:green;!important" })
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Ingreso", "Doctor", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.TextBoxFor(id => id.cita_id, new { @class = "form-control", style = "display:none;" })
+                        <div class="form-group">
+                            <span class="col-sm-1"></span>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(x => x.diagnostico, new { @class = "form-control", placeholder = "Diagnostico", rows = "5" })
+                                @Html.ValidationMessageFor(x => x.diagnostico, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputName" class="col-sm-5 control-label">Medicamento</label>
+
+                            <div class="col-sm-7">
+                                @Html.TextBoxFor(pe => pe.medicamento, new { @class = "form-control", placeholder = "Medicamento", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(pe => pe.medicamento, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSkills" class="col-sm-5 control-label">Fecha de Inicio</label>
+
+                            <div class="col-sm-7">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.TextBoxFor(fn => fn.fecha_inicio, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;" })
+                                    <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
+
+
+                                </div>
+                                @Html.ValidationMessageFor(fn => fn.fecha_inicio, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSkills" class="col-sm-5 control-label">Fecha de Inicio</label>
+
+                            <div class="col-sm-7">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.TextBoxFor(fn => fn.fecha_final, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;" })
+                                    <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
+
+
+                                </div>
+                                @Html.ValidationMessageFor(fn => fn.fecha_final, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Dosis</label>
+
+                            <div class="col-sm-7">
+
+                                @Html.TextBoxFor(es => es.dosis, new { @class = "form-control", placeholder = "Dosis", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(es => es.dosis, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label">Detalle</label>
+
+                            <div class="col-sm-7">
+
+                                @Html.TextBoxFor(id => id.detalle, new { @class = "form-control", placeholder = "Detalle", style = "width: 156px;" })
+                                @Html.ValidationMessageFor(id => id.detalle, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-7">
+
+                                <button type="submit" class="btn btn-info btn-flat">Ingresar Datos</button>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+
+    <!-- /.row -->
+</section>
+
+
+

@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Citas.cs" />
+    <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Correo.cs" />
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
@@ -7328,6 +7329,9 @@
     <Content Include="Views\Asistente\MostrarCitas.cshtml" />
     <Content Include="Views\Asistente\Citas.cshtml" />
     <Content Include="Views\Asistente\Ingreso.cshtml" />
+    <Content Include="Views\Doctor\Ingreso.cshtml" />
+    <Content Include="Views\Doctor\MostrarCitas.cshtml" />
+    <Content Include="Views\Doctor\Citas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

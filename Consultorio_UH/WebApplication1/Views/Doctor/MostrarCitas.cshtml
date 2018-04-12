@@ -1,9 +1,10 @@
 ﻿@model Consultorio_UH.Models.Preconsulta
 @using System.Globalization;
 @{
-    ViewBag.Title = "Mostrar Citas";
-    Layout = "~/Views/Shared/Master_Asistente.cshtml";
+    ViewBag.Title = "MostrarCitas";
+    Layout = "~/Views/Shared/Master_Doctor.cshtml";
 }
+
 <section class="content">
     <div class="row">
         <!-- left column -->
@@ -37,21 +38,21 @@
                     @using (Html.BeginForm("MostrarCitas", "Asistente", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         @Html.AntiForgeryToken()
-                       <div class="form-group">
+                        <div class="form-group">
                             <label for="inputSkills" class="col-sm-5 control-label">Fecha</label>
 
                             <div class="col-sm-7">
                                 <div class="input-group date text-center">
                                     @Html.TextBoxFor(s => s.fecha, new { @class = "form-control", style = "display:none;" })
-                                    <input class="form-control" type="text" value=@Model.fecha.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) disabled ="true"/>
+                                    <input class="form-control" type="text" value=@Model.fecha.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) disabled="true" />
                                 </div>
                             </div>
-                        </div>    
+                        </div>
 
                         <div class="form-group">
                             <label for="inputSkills" class="col-sm-5 control-label">Hora</label>
                             <div class="col-sm-7">
-                                <select @Html.TextBoxFor(s => s.hora, new { @class = "form-control", style = "width: 194px;"})>
+                                <select @Html.TextBoxFor(s => s.hora, new { @class = "form-control", style = "width: 194px;" })>
                                     <option>7:00 AM</option>
                                     <option>7:30 AM</option>
                                     <option>8:00 AM</option>
@@ -93,4 +94,5 @@
         <!--/.col(right) -->
     </div>
     <!-- /.row -->
-    </section>
+</section>
+

@@ -60,19 +60,20 @@
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
+                                    <th>Paciente</th>
                                     <th>Doctor</th>
-                                    <th>Servico</th>
+                                    <th>Servicio</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
                                     <th>Estado</th>
-                                    <th>Accción</th>
+                                    <th>Acción</th>
                                 </tr>
                                 @for (int i = 0; i < Model.ds.Rows.Count; i++)
                                 {
                                     <tr>
                                         @for (int j = 1; j < Model.ds.Columns.Count-1; j++)
                                         {
-                                            if (j == 3)
+                                            if (j == 4)
                                             {
                                                 <td>@Convert.ToDateTime(@Model.ds.Rows[i][j].ToString()).ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture)</td>
                                             }
@@ -82,7 +83,7 @@
                                             }
                                           
                                         }
-                                        @switch (Model.ds.Rows[i][5].ToString())
+                                        @switch (Model.ds.Rows[i][6].ToString())
                                         {
                                         case "1":
                                         <td>
