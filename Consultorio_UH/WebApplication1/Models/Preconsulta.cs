@@ -46,6 +46,17 @@ namespace Consultorio_UH.Models
                 string a = e.Message;
             }
         }
+        public DataTable buscar(int id_preconsulta)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("Select * from PreconsultaDetallePaciente("+id_preconsulta+");", conn);
+            cmd.Connection = conn;
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            adap.Fill(ds);
+            conn.Close();
+            return ds;
+
+        }
 
         public void ingreso()
         {

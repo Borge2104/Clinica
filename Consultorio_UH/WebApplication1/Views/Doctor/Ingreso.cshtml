@@ -1,6 +1,6 @@
 ﻿
 @using System.Web.Optimization;
-@model Consultorio_UH.Models.Consulta
+@model Consultorio_UH.Models.Doctor
 
 @{
     ViewBag.Title = "Ingreso";
@@ -37,13 +37,22 @@
                 <div class="box-body">
                    
                     <form action="" method="post"></form>
-                   
+                    
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-5 control-label">Paciente</label>
+
+                        <div class="col-sm-7">
+                            <text class="form-control" placeholder="0,0 m" style="width: 156px;" disabled="disabled">@Model.ds.Rows[0][1]</text>
+
+                        </div>
+
+                    </div>
                        
                         <div class="form-group">
                             <span class="col-sm-1"></span>
                             <div class="col-sm-10">
                                 
-                                <textarea class = "form-control" placeholder = "Motivo de consulta" rows = "5" disabled = "disabled"></textarea>
+                                <textarea class = "form-control" placeholder = "Motivo de consulta" rows = "5" disabled = "disabled">@Model.ds.Rows[0][2]</textarea>
                                
                             </div>
                         </div>
@@ -52,7 +61,7 @@
                             <label for="inputName" class="col-sm-5 control-label">Peso</label>
 
                             <div class="col-sm-7">
-                                <text class = "form-control"placeholder = "0,0 Kg" style = "width: 156px;" disabled = "disabled"></text>
+                                <text class = "form-control"placeholder = "0,0 Kg" style = "width: 156px;" disabled = "disabled">@Model.ds.Rows[0][3]</text>
                                 
                             </div>
                         </div>
@@ -60,7 +69,7 @@
                             <label for="inputName" class="col-sm-5 control-label">Estatura</label>
 
                             <div class="col-sm-7">
-                                <text class="form-control" placeholder="0,0 m" style="width: 156px;" disabled="disabled"></text>
+                                <text class="form-control" placeholder="0,0 m" style="width: 156px;" disabled="disabled">@Model.ds.Rows[0][4]</text>
                                 
                             </div>
 
@@ -69,7 +78,7 @@
                             <label for="inputName" class="col-sm-5 control-label">Presion Arterial</label>
 
                             <div class="col-sm-7">
-                                <text class="form-control" placeholder="mm/Hg" style="width: 156px;" disabled="disabled"></text>
+                                <text class="form-control" placeholder="mm/Hg" style="width: 156px;" disabled="disabled">@Model.ds.Rows[0][5]</text>
                                
                             </div>
 
@@ -121,77 +130,39 @@
                         </div>
                         <div class="form-group">
 
-                            <label for="inputName" class="col-sm-5 control-label">Medicamento</label>
-
-                            <div class="col-sm-7">
-                                @Html.TextBoxFor(pe => pe.medicamento, new { @class = "form-control", placeholder = "Medicamento", style = "width: 156px;" })
-                                @Html.ValidationMessageFor(pe => pe.medicamento, String.Empty, new { @style = "color:red;!important" })
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Medicamentos</h3>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputSkills" class="col-sm-5 control-label">Fecha de Inicio</label>
 
-                            <div class="col-sm-7">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Medicamento</th>
+                                        <th>Dosis</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Final</th>
+                                        <th>Dosis</th>
+                                        <th>Accción</th>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-4">
+
+                                            <button type="submit" class="btn btn-info btn-flat">Ingresar Medicamento</button>
+
+                                        </div>
+                                        <div class="col-sm-offset-1 col-sm-3">
+
+                                            <button type="submit" class="btn btn-success btn-flat">Finalizar Consulta</button>
+
+                                        </div>
                                     </div>
-                                    @Html.TextBoxFor(fn => fn.fecha_inicio, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;" })
-                                    <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
-
-
-                                </div>
-                                @Html.ValidationMessageFor(fn => fn.fecha_inicio, String.Empty, new { @style = "color:red;!important" })
-                            </div>
+                                    }
                         </div>
-                        <div class="form-group">
-                            <label for="inputSkills" class="col-sm-5 control-label">Fecha de Inicio</label>
-
-                            <div class="col-sm-7">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    @Html.TextBoxFor(fn => fn.fecha_final, new { @type = "date", @class = "form-control", placeholder = "dd/mm/yyyy", style = "width: 156px;" })
-                                    <!--<input type="date" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">-->
-
-
-                                </div>
-                                @Html.ValidationMessageFor(fn => fn.fecha_final, String.Empty, new { @style = "color:red;!important" })
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputName" class="col-sm-5 control-label">Dosis</label>
-
-                            <div class="col-sm-7">
-
-                                @Html.TextBoxFor(es => es.dosis, new { @class = "form-control", placeholder = "Dosis", style = "width: 156px;" })
-                                @Html.ValidationMessageFor(es => es.dosis, String.Empty, new { @style = "color:red;!important" })
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="inputName" class="col-sm-5 control-label">Detalle</label>
-
-                            <div class="col-sm-7">
-
-                                @Html.TextBoxFor(id => id.detalle, new { @class = "form-control", placeholder = "Detalle", style = "width: 156px;" })
-                                @Html.ValidationMessageFor(id => id.detalle, String.Empty, new { @style = "color:red;!important" })
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-5 col-sm-7">
-
-                                <button type="submit" class="btn btn-info btn-flat">Ingresar Datos</button>
-
-                            </div>
-                        </div>
-                    }
-                </div>
             </div>
             <!-- /.box -->
             <!-- general form elements disabled -->
@@ -199,7 +170,6 @@
         </div>
         <!--/.col (right) -->
     </div>
-
     <!-- /.row -->
 </section>
 

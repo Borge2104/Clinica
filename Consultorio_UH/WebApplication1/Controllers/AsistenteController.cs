@@ -49,13 +49,7 @@ namespace Consultorio_UH.Controllers
            
                 Preconsulta p = new Preconsulta();
                 p.cita_id = id_cita;
-                return View(p);
-
-            
-
-            
-
-
+                return View(p);       
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

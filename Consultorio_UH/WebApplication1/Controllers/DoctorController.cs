@@ -20,18 +20,13 @@ namespace Consultorio_UH.Controllers
         [CustomAutorizarAtributos(Roles = "4")]
         public ActionResult MostrarCitas()
         {
-            Preconsulta p = new Preconsulta();
-            p.fecha = DateTime.Now;
-            return View(p);
+            Doctor d = new Doctor();
+            d.doctor_id = Convert.ToInt32(Sesion_persistente.Rol_id);
+            d.fecha = DateTime.Now;
+            d.mostrar();
+            return View(d);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [CustomAutorizarAtributos(Roles = "4")]
-        public ActionResult MostrarCitas(Preconsulta p)
-        {
-            return RedirectToAction("Citas", "Doctor", new { fecha = p.fecha, hora = p.hora });
-        }
 
         public ActionResult Citas(DateTime fecha, string hora)
         {
@@ -42,15 +37,17 @@ namespace Consultorio_UH.Controllers
             return View(p);
 
         }
-        public ActionResult Ingreso(/*int id_cita*/)
+        public ActionResult Ingreso(int preconsulta_id)
         {
-
-           /* Preconsulta p = new Preconsulta();
-            p.cita_id = id_cita;
-            return View(p);*/
-            
-
-            return View();
+            Doctor d = new Doctor();
+            d.id_preconsulta = preconsulta_id;
+            Preconsulta s = new Preconsulta();
+            d.ds = s.buscar(preconsulta_id);
+            if (d.ds.Rows[0][6].ToString() != "-1")
+            {
+                d.id = Convert.ToInt32(d.ds.Rows[0][5].ToString());
+            }
+            return View(d);
 
 
 

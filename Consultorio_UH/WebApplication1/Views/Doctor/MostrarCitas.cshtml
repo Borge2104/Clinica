@@ -1,7 +1,7 @@
-﻿@model Consultorio_UH.Models.Preconsulta
+﻿@model Consultorio_UH.Models.Doctor
 @using System.Globalization;
 @{
-    ViewBag.Title = "MostrarCitas";
+    ViewBag.Title = "Citas";
     Layout = "~/Views/Shared/Master_Doctor.cshtml";
 }
 
@@ -16,12 +16,11 @@
             <!-- general form elements disabled -->
             <!-- /.box -->
         </div>
-
         <!--/.col (right) -->
     </div>
     <!-- /.row -->
-    <div class="row">
 
+    <div class="row">
         <!-- left column -->
         <!--/.col (left) -->
         <!-- right column -->
@@ -29,69 +28,91 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Mostrar Citas</h3>
+                    <h3 class="box-title">Citas</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <div class="box-body">
-                    <form method="post"> </form>
-                    @using (Html.BeginForm("MostrarCitas", "Asistente", FormMethod.Post, new { @class = "form-horizontal" }))
+
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Citas", "Paciente", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
-                        @Html.AntiForgeryToken()
+
                         <div class="form-group">
                             <label for="inputSkills" class="col-sm-5 control-label">Fecha</label>
 
                             <div class="col-sm-7">
                                 <div class="input-group date text-center">
-                                    @Html.TextBoxFor(s => s.fecha, new { @class = "form-control", style = "display:none;" })
-                                    <input class="form-control" type="text" value=@Model.fecha.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) disabled="true" />
+                                    <input type="text" value=@Model.fecha.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture) class="form-control" disabled="true" />
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="inputSkills" class="col-sm-5 control-label">Hora</label>
-                            <div class="col-sm-7">
-                                <select @Html.TextBoxFor(s => s.hora, new { @class = "form-control", style = "width: 194px;" })>
-                                    <option>7:00 AM</option>
-                                    <option>7:30 AM</option>
-                                    <option>8:00 AM</option>
-                                    <option>8:30 AM</option>
-                                    <option>9:00 AM</option>
-                                    <option>9:30 AM</option>
-                                    <option>10:00 AM</option>
-                                    <option>10:30 AM</option>
-                                    <option>11:00 AM</option>
-                                    <option>11:30 AM</option>
-                                    <option>1:00 PM</option>
-                                    <option>1:30 PM</option>
-                                    <option>2:00 PM</option>
-                                    <option>2:30 PM</option>
-                                    <option>3:00 PM</option>
-                                    <option>3:30 PM</option>
-                                    <option>4:00 PM</option>
-                                    <option>4:30 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-5 col-sm-7">
 
-                                <button type="submit" class="btn btn-info btn-flat">Mostrar Citas</button>
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>Paciente</th>
+                                    <th>Servico</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Estado</th>
+                                    <th>Accción</th>
+                                </tr>
+                                @for (int i = 0; i < Model.ds.Rows.Count; i++)
+                                {
+                                    <tr>
+                                        @for (int j = 2; j < Model.ds.Columns.Count - 1; j++)
+                                        {
+                                            if (j == 4)
+                                            {
+                                                <td>@Convert.ToDateTime(@Model.ds.Rows[i][j].ToString()).ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture)</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@Model.ds.Rows[i][j].ToString()</td>
+                                            }
 
-                            </div>
-                        </div>
-
+                                        }
+                                        @switch (Model.ds.Rows[i][6].ToString())
+                                        {
+                                            case "1":
+                                                <td>
+                                                    <span class="label label-info">En espera del paciente</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                </td>
+                                                break;
+                                            case "2":
+                                                <td>
+                                                    <span class="label label-warning">En proceso</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-default btn-flat" , disabled="true">Tomar</button>
+                                                </td>
+                                                break;
+                                            case "3":
+                                                <td>
+                                                    <span class="label label-info">Tomar</span>
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Tomar", "Ingreso", "Doctor", new { preconsulta_id = @Model.ds.Rows[i][1]}, new { @class = "btn btn-info btn-flat" })
+                                                </td>
+                                                break;
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
                     }
-
                 </div>
-
             </div>
             <!-- /.box -->
             <!-- general form elements disabled -->
             <!-- /.box -->
         </div>
-        <!--/.col(right) -->
+        <!--/.col (right) -->
     </div>
     <!-- /.row -->
 </section>

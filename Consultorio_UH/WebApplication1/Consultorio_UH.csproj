@@ -208,8 +208,10 @@
     <Compile Include="Models\Citas.cs" />
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\Correo.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Medicamento.cs" />
     <Compile Include="Models\Preconsulta.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Servicios_Doctores.cs" />
@@ -7332,6 +7334,7 @@
     <Content Include="Views\Doctor\Ingreso.cshtml" />
     <Content Include="Views\Doctor\MostrarCitas.cshtml" />
     <Content Include="Views\Doctor\Citas.cshtml" />
+    <Content Include="Views\Doctor\Medicamento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
