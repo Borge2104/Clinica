@@ -1,9 +1,8 @@
-﻿
-@using System.Web.Optimization;
-@model Consultorio_UH.Models.Doctor
+﻿@using System.Web.Optimization;
+@model Consultorio_UH.Models.Medicamento
 
 @{
-    ViewBag.Title = "Ingreso";
+    ViewBag.Title ="Ingreso de Tratamiento";
     Layout = "~/Views/Shared/Master_Doctor.cshtml";
 }
 
@@ -30,24 +29,19 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Ingreso de tratamiento</h3>
+                    <h3 class="box-title">Ingreso de Tratamiento</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <div class="box-body">
                     @Html.ValidationSummary(true, String.Empty, new { @style = "color:green;!important" })
                     <form action="" method="post"></form>
-                    @using (Html.BeginForm("Ingreso", "Doctor", FormMethod.Post, new { @class = "form-horizontal" }))
+                    @using (Html.BeginForm("Medicamento", "Doctor", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.TextBoxFor(id => id.cita_id, new { @class = "form-control", style = "display:none;" })
-                        <div class="form-group">
-                            <span class="col-sm-1"></span>
-                            <div class="col-sm-10">
-                                @Html.TextAreaFor(x => x.diagnostico, new { @class = "form-control", placeholder = "Diagnostico", rows = "5" })
-                                @Html.ValidationMessageFor(x => x.diagnostico, String.Empty, new { @style = "color:red;!important" })
-                            </div>
-                        </div>
+                        @Html.TextBoxFor(id => id.diagnostico_id, new { @class = "form-control", style = "display:none;" })
+                        @Html.TextBoxFor(id => id.id_preconsulta, new { @class = "form-control", style = "display:none;" })
+                      
                         <div class="form-group">
 
                             <label for="inputName" class="col-sm-5 control-label">Medicamento</label>
