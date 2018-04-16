@@ -212,6 +212,7 @@
     <Compile Include="Models\Establecer_password.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Medicamento.cs" />
+    <Compile Include="Models\Nutricion_consulta.cs" />
     <Compile Include="Models\Preconsulta.cs" />
     <Compile Include="Models\Registro_Perfiles.cs" />
     <Compile Include="Models\Servicios_Doctores.cs" />
@@ -7335,6 +7336,9 @@
     <Content Include="Views\Doctor\MostrarCitas.cshtml" />
     <Content Include="Views\Doctor\Citas.cshtml" />
     <Content Include="Views\Doctor\Medicamento.cshtml" />
+    <Content Include="Views\Nutri\Citas.cshtml" />
+    <Content Include="Views\Nutri\Ingreso.cshtml" />
+    <Content Include="Views\Nutri\MostrarCitas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

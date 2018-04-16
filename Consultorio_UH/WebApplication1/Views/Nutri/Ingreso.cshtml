@@ -1,0 +1,414 @@
+﻿@model Consultorio_UH.Models.Nutricion_consulta
+
+@{
+    ViewBag.Title = "Ingreso";
+    Layout = "~/Views/Shared/Master_Nutri.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Datos Generales</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label" style="width: 120px;">Paciente</label>
+
+                            <div class="col-sm-10">
+                                <input " class="form-control"  placeholder="Paciente" style="width: 176px;" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label" style="width: 120px;">Genero</label>
+
+                            <div class="col-sm-10">
+                                <input  class="form-control"  placeholder="Genero" style="width: 176px;" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label" style="width: 120px;">Edad</label>
+
+                            <div class="col-sm-10">
+
+                                <input class="form-control"  placeholder="Años" style="width: 176px;" disabled="disabled">
+                                
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label" style="width: 120px;">Peso Actual</label>
+
+                            <div class="col-sm-10">
+                                <input  class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 120px;">Peso Usual</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="kg" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia de Muñeca</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">Altura de Rodilla</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia Braquial</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia Abdominal</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia de Cadera</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 210px;">% de Grasa</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="%" style="width: 176px;">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info pull-right">Paso 1-Procesar</button>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                       
+                        
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Estimación de talla</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Hombres(cm)</th>
+                                        <th>Mujeres(cm)</th>
+                                       
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Evaluación Nutricional</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 120px;">Talla a Utilizar</label>
+
+                            <div class="col-sm-10">
+                                <input " class="form-control" placeholder="Talla" style="width: 176px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label" style="width: 120px;">Estructura Corporal</label>
+
+                            <div class="col-sm-10">
+                                <input class="form-control" placeholder="cm" style="width: 176px;" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 120px;">IMC</label>
+
+                            <div class="col-sm-10">
+
+                                <input class="form-control" placeholder="IMC" style="width: 176px;" disabled="disabled">
+
+                            </div>
+
+                        </div>
+                        
+                        
+                        <button type="submit" class="btn btn-info pull-right" disabled="disabled">Paso 2-Procesar</button>
+                        
+                        
+                        
+                    </div>
+                    <!-- /.box-body -->
+                    
+
+                    <div class="box-footer">
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">PI Según ADA(Hombres)</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>EC Pequeña</th>
+                                        <th>EC Mediana</th>
+                                        <th>EC Grande</th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">PI Según ADA(Mujeres)</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>EC Pequeña</th>
+                                        <th>EC Mediana</th>
+                                        <th>EC Grande</th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">PI Según FEC</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Pequeña</th>
+                                        <th>Mediana</th>
+                                        <th>Grande</th>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">PI Según IMC Adulto Mayor</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Medida</th>
+                                        
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">PI por fórmula de lorentz</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Hombres</th>
+                                        <th>Mujeres</th>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Estimación de PI pte encamado(Raza Blanca)</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Hombres</th>
+                                        <th>Mujeres</th>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Estimación de PI pte encamado(Raza Negra)</h3>
+                            </div>
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Hombres</th>
+                                        <th>Mujeres</th>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 120px;">PI a Utilizar</label>
+
+                            <div class="col-sm-10">
+                                <input " class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                            </div>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" style="width: 120px;">IMC Deseado</label>
+
+                            <div class="col-sm-10">
+                                <input  " class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                            </div>
+
+
+                        </div>
+                        <button type="submit" class="btn btn-info pull-right" disabled="disabled">Paso 3-Procesar</button>
+                    </div>
+                    
+                    <div class="box-footer">
+                        <div class="form-group">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Pesos (Kg)</h3>
+                            </div>
+
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Peso Ajustado</th>
+                                        <th>Peso Meta según IMC</th>
+                                        <th>Peso Meta</th>
+                                        
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <div class="form-group">
+
+
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>% P/T</th>
+                                        <th>% P/U</th>
+                                        <th>% CP</th>
+                                        <th>% Grasa(65-83) Hombres</th>
+                                        <th>% Grasa(65-83) Mujeres</th>
+
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <div class="form-group">
+                            <span class="col-sm-1"></span>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(x => x.diagnostico, new { @class = "form-control", placeholder = "Diagnostico", rows = "5", disabled = "disabled" })
+                                @Html.ValidationMessageFor(x => x.diagnostico, String.Empty, new { @style = "color:red;!important" })
+                            </div>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-3">
+
+                            <button type="submit" class="btn btn-success btn-flat" disabled="disabled">Finalizar Consulta</button>
+
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Interpretacion</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        
+                    </div>
+                    <!-- /.box-body -->
+                    <img class="img-responsive" src="~/Content/dist/img/inter.png" alt="Photo">
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+</section>
+
+
+
+
+
