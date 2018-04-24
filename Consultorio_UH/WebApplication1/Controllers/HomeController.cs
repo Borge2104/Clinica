@@ -175,10 +175,26 @@ namespace WebApplication1.Controllers
                 }
 
             return View();  
-
-                  
-
         }
-       
+
+       [HttpPost]
+        public ActionResult applogin(string email,string pass)
+        {
+            var jresult = new List<object>();
+            Login l = new Login();
+            l.Correo = email;
+            l.Password = pass;
+            if (l.verificar_usuario() == true)
+            {
+                string nombre_completo =l.Usuario_Logueado();
+                jresult.Add(new { estado = true, nombre = nombre_completo,rol = l.Rol, rol_id = l.Rol_id });
+            }
+            else
+            {
+                jresult.Add(new { estado = false, error = "Email/Contraseña son incorrectos" });
+
+            }
+            return Json(jresult, JsonRequestBehavior.AllowGet);
+        }
     }
 }
