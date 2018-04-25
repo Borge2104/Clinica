@@ -22,7 +22,7 @@
                             <label  class="col-sm-2 control-label" style="width: 120px;">Paciente</label>
 
                             <div class="col-sm-10">
-                                <input " class="form-control"  placeholder="Paciente" style="width: 176px;" disabled="disabled">
+                                <input  class="form-control"  placeholder="Paciente" style="width: 176px;" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group">
@@ -33,11 +33,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label  class="col-sm-2 control-label" style="width: 120px;">Edad</label>
+                            <label  class="col-sm-2 control-label"  style="width: 120px;">Edad</label>
 
                             <div class="col-sm-10">
 
-                                <input class="form-control"  placeholder="Años" style="width: 176px;" disabled="disabled">
+                                <input class="form-control" id="Edad" onchange="Estimacion_Talla()"  placeholder="Años" style="width: 176px;" disabled="disabled">
                                 
                             </div>
                             
@@ -46,7 +46,7 @@
                             <label  class="col-sm-2 control-label" style="width: 120px;">Peso Actual</label>
 
                             <div class="col-sm-10">
-                                <input  class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                                <input  class="form-control" id="Peso_Actual" placeholder="kg" style="width: 176px;" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group">
@@ -60,14 +60,14 @@
                             <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia de Muñeca</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                                <input class="form-control" id="Circunferencia_M" placeholder="cm" onchange="Estructura_corporal()" style="width: 176px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label" style="width: 210px;">Altura de Rodilla</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                                <input class="form-control" id = "Altura_Rodilla" onchange="Estimacion_Talla()" placeholder="cm" style="width: 176px;">
                             </div>
                         </div>
                         <div class="form-group">
@@ -115,7 +115,10 @@
                                     <tr>
                                         <th>Hombres(cm)</th>
                                         <th>Mujeres(cm)</th>
-                                       
+                                    </tr>
+                                    <tr>
+                                        <td><input class="form-control" id="Estimacion_Hombre" placeholder="%" style="width: 176px;"></td>
+                                        <td><input class="form-control" id="Estimacion_Mujer" placeholder="%" style="width: 176px;"></td>
                                     </tr>
 
 
@@ -139,14 +142,14 @@
                             <label class="col-sm-2 control-label" style="width: 120px;">Talla a Utilizar</label>
 
                             <div class="col-sm-10">
-                                <input " class="form-control" placeholder="Talla" style="width: 176px;">
+                                <input  class="form-control" id="talla_utilizar" onchange="Estructura_corporal()" placeholder="Talla" style="width: 176px;">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="col-sm-2 control-label" style="width: 120px;">Estructura Corporal</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="cm" style="width: 176px;" disabled="disabled">
+                                <input class="form-control" id="EstructuraCorporal" placeholder="cm" style="width: 176px;" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group">
@@ -154,7 +157,7 @@
 
                             <div class="col-sm-10">
 
-                                <input class="form-control" placeholder="IMC" style="width: 176px;" disabled="disabled">
+                                <input class="form-control" id="IMC" placeholder="IMC" style="width: 176px;" disabled="disabled">
 
                             </div>
 
@@ -406,6 +409,41 @@
         <!--/.col (right) -->
     </div>
     <!-- /.row -->
+
+    <script type="text/javascript">
+        function Estructura_corporal()
+        {
+            var muñeca_circuferencia = document.getElementById("Circunferencia_M").value;
+            var talla_utilizar = document.getElementById("talla_utilizar").value;
+            document.getElementById("EstructuraCorporal").value = roundToTwo(talla_utilizar / muñeca_circuferencia);
+
+        }
+
+        function Estimacion_Talla()
+        {
+            var Edad = document.getElementById("Edad").value;
+            var Altura_Rodilla = document.getElementById("Altura_Rodilla").value;
+            var resultH = 64.19 - (0.04 * Edad) + (2.02 * Altura_Rodilla);
+            var resultM = 84.88 - (0.24 * Edad) + (1.83 * Altura_Rodilla);
+            document.getElementById("Estimacion_Hombre").value = roundToTwo(resultH);
+            document.getElementById("Estimacion_Mujer").value = roundToTwo(resultM);
+
+        }
+        function Calcular_IMC()
+        {
+            var peso_actual = document.getElementById("Peso_Actual").value;
+            var talla_utilizar = document.getElementById("talla_utilizar").value;
+            var div = talla_utilizar/100;
+            var multi = div * div;
+            var result = peso_actual / multi;
+            document.getElementById("IMC").value = roundToTwo(result);
+
+        }
+        function roundToTwo(num) {
+            return +(Math.round(num + "e+2") + "e-2");
+        }
+
+    </script>
 </section>
 
 

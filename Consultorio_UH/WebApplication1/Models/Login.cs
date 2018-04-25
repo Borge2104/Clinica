@@ -158,6 +158,9 @@ namespace Consultorio_UH.Models
                 case "4":
                     tabla = "doctor";
                     break;
+                case "5":
+                    tabla = "doctor";
+                    break;
             }
             return tabla;
         }
