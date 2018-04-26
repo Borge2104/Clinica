@@ -46,7 +46,7 @@
                             <label  class="col-sm-2 control-label" style="width: 120px;">Peso Actual</label>
 
                             <div class="col-sm-10">
-                                <input  class="form-control" id="Peso_Actual" placeholder="kg" style="width: 176px;" disabled="disabled">
+                                <input  class="form-control" id="Peso_Actual" onchange="Calcular_IMC()" placeholder="kg" style="width: 176px;" disabled="disabled">
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,7 +74,7 @@
                             <label class="col-sm-2 control-label" style="width: 210px;">Circunferencia Braquial</label>
 
                             <div class="col-sm-10">
-                                <input class="form-control" placeholder="cm" style="width: 176px;">
+                                <input class="form-control" id = "Circun_Braquial"  onchange="Estimacion_Talla()"  placeholder="cm" style="width: 176px;">
                             </div>
                         </div>
                         <div class="form-group">
@@ -142,7 +142,7 @@
                             <label class="col-sm-2 control-label" style="width: 120px;">Talla a Utilizar</label>
 
                             <div class="col-sm-10">
-                                <input  class="form-control" id="talla_utilizar" onchange="Estructura_corporal()" placeholder="Talla" style="width: 176px;">
+                                <input  class="form-control" id="talla_utilizar" onchange="Calcular_IMC()" placeholder="Talla" style="width: 176px;">
                             </div>
                         </div>
                         <div class="form-group">
@@ -186,7 +186,11 @@
                                         <th>EC Mediana</th>
                                         <th>EC Grande</th>
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PIH_p" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PIH_m" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PIH_g" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -222,7 +226,11 @@
                                         <th>Mediana</th>
                                         <th>Grande</th>
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PIF_p" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PIF_m" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PIF_g" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -239,7 +247,9 @@
                                         <th>Medida</th>
                                         
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PI_AM" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -255,9 +265,11 @@
                                     <tr>
                                         <th>Hombres</th>
                                         <th>Mujeres</th>
-
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PIL_h" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PIL_m" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -275,7 +287,10 @@
                                         <th>Mujeres</th>
 
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PI_RB_h" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PI_RB_m" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -293,7 +308,10 @@
                                         <th>Mujeres</th>
 
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="PI_RN_h" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="PI_RN_m" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -305,7 +323,7 @@
                             <label class="col-sm-2 control-label" style="width: 120px;">PI a Utilizar</label>
 
                             <div class="col-sm-10">
-                                <input " class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                                <input id="PI_Utilizar" class="form-control" placeholder="kg" style="width: 176px;">
                             </div>
 
 
@@ -314,7 +332,7 @@
                             <label class="col-sm-2 control-label" style="width: 120px;">IMC Deseado</label>
 
                             <div class="col-sm-10">
-                                <input  " class="form-control" placeholder="kg" style="width: 176px;" disabled="disabled">
+                                <input  id="IMC_deseado" class="form-control" placeholder="kg" style="width: 176px;">
                             </div>
 
 
@@ -338,7 +356,11 @@
                                         
 
                                     </tr>
-
+                                    <tr>
+                                        <td><input class="form-control" id="Peso_Ajustado" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="Peso_Meta_IMC" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                        <td><input class="form-control" id="Peso_Meta" placeholder="0" style="width: 176px;" disabled="disabled"></td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -416,30 +438,102 @@
             var muñeca_circuferencia = document.getElementById("Circunferencia_M").value;
             var talla_utilizar = document.getElementById("talla_utilizar").value;
             document.getElementById("EstructuraCorporal").value = roundToTwo(talla_utilizar / muñeca_circuferencia);
+            //Calcular_IMC();
 
         }
-
         function Estimacion_Talla()
         {
             var Edad = document.getElementById("Edad").value;
             var Altura_Rodilla = document.getElementById("Altura_Rodilla").value;
+            var Circun_Braquial = document.getElementById("Circun_Braquial").value;
             var resultH = 64.19 - (0.04 * Edad) + (2.02 * Altura_Rodilla);
             var resultM = 84.88 - (0.24 * Edad) + (1.83 * Altura_Rodilla);
             document.getElementById("Estimacion_Hombre").value = roundToTwo(resultH);
             document.getElementById("Estimacion_Mujer").value = roundToTwo(resultM);
+            EstimacionRaza(Altura_Rodilla, Circun_Braquial)
 
         }
         function Calcular_IMC()
         {
             var peso_actual = document.getElementById("Peso_Actual").value;
             var talla_utilizar = document.getElementById("talla_utilizar").value;
+            Estructura_corporal();
             var div = talla_utilizar/100;
             var multi = div * div;
             var result = peso_actual / multi;
             document.getElementById("IMC").value = roundToTwo(result);
+            PI_ADA(talla_utilizar);
+            PI_FEC(talla_utilizar);
+            PI_AdultoMayor(talla_utilizar);
+            PI_L(talla_utilizar);
+            Calculo_pesos(talla_utilizar)
+        }
+
+        function PI_ADA(talla_utilizar)
+        {
+
+            var ec_med_h = ((talla_utilizar - 152) / (2.5) * (2.7) + (48.2));
+            var ec_peq_h = ec_med_h - (ec_med_h * 0.1);
+            var ec_gra_h = ec_med_h + (ec_med_h * 0.1);
+            document.getElementById("PIH_p").value = roundToTwo(ec_peq_h);
+            document.getElementById("PIH_m").value = roundToTwo(ec_med_h);
+            document.getElementById("PIH_g").value = roundToTwo(ec_gra_h);
+        }
+
+        function PI_FEC(talla_utilizar)
+        {
+            fec_p = (((talla_utilizar / 100) * (talla_utilizar / 100)) * 20.5);
+            fec_m = (((talla_utilizar / 100) * (talla_utilizar / 100)) * 22.5);
+            fec_g = (((talla_utilizar / 100) * (talla_utilizar / 100)) * 25);
+            document.getElementById("PIF_p").value = roundToTwo(fec_p);
+            document.getElementById("PIF_m").value = roundToTwo(fec_m);
+            document.getElementById("PIF_g").value = roundToTwo(fec_g);
+            
+        }
+
+        function PI_AdultoMayor(talla_utilizar)
+        {
+            var adult_mayor_medida = ((23 * ((talla_utilizar / 100) * (talla_utilizar / 100))) + (28 * ((talla_utilizar / 100) * (talla_utilizar / 100)))) / (2);
+            document.getElementById("PI_AM").value = roundToTwo(adult_mayor_medida);
+        }
+
+        function PI_L(talla_utilizar)
+        {
+            var pi_lorentz_h = talla_utilizar - 100 - ((talla_utilizar - 150) / 4);
+            var pi_lorentz_m = talla_utilizar - 100 - ((talla_utilizar - 150) / 2.5);
+            document.getElementById("PIL_h").value = roundToTwo(pi_lorentz_h);
+            document.getElementById("PIL_m").value = roundToTwo(pi_lorentz_m);
+        }
+        function EstimacionRaza(Altura_Rodilla, Circun_Braquial)
+        {
+            /*Raza blanca*/
+            var pi_raza_b_h = (Altura_Rodilla * 1.1) + (Circun_Braquial * 3.07) - 75.81;
+            var pi_raza_b_m = (Altura_Rodilla * 1.09) + (Circun_Braquial * 2.68) - 65.51;
+            /*Raza Negra*/
+            var pi_raza_n_h = (Altura_Rodilla * 0.44) + (Circun_Braquial * 2.86) - 39.21;
+            var pi_raza_n_m = (Altura_Rodilla * 1.5) + (Circun_Braquial * 2.58) - 84.22;
+            document.getElementById("PI_RB_h").value = roundToTwo(pi_raza_b_h);
+            document.getElementById("PI_RB_m").value = roundToTwo(pi_raza_b_m);
+            document.getElementById("PI_RN_h").value = roundToTwo(pi_raza_n_h);
+            document.getElementById("PI_RN_m").value = roundToTwo(pi_raza_n_m);
 
         }
-        function roundToTwo(num) {
+        function Calculo_pesos(talla_utilizar)
+        {
+            var PI = document.getElementById("PI_Utilizar").value;
+            var IMC_Deseado = document.getElementById("IMC_deseado").value;
+            var peso = document.getElementById("Peso_Actual").value;
+            var ec_med_h = document.getElementById("PIH_m").value;
+            var peso_ajustado = (peso - PI) / 4 + PI;
+            var peso_imc = IMC_Deseado * ((talla_utilizar / 100) * (talla_utilizar / 100));
+            var peso_meta = peso - (ec_med_h * 0.1);
+            document.getElementById("Peso_Ajustado").value = roundToTwo(peso_ajustado);
+            document.getElementById("Peso_Meta_IMC").value = roundToTwo(peso_imc);
+            document.getElementById("Peso_Meta").value = roundToTwo(peso_meta);
+        }
+
+        function roundToTwo(num)
+        {
             return +(Math.round(num + "e+2") + "e-2");
         }
 
