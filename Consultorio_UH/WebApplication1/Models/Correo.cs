@@ -31,7 +31,11 @@ namespace Consultorio_UH.Models
             string CuentaCorreo = "uhconsulta@gmail.com";
             string PassCorreo = "uhconsulta2018";
             smtp.Credentials = new System.Net.NetworkCredential(CuentaCorreo, PassCorreo);
-            smtp.Send(correo);
+            try
+            { smtp.Send(correo); }
+            catch (Exception e)
+            { }
+            
         }
 
         public void Restablecer_Password()

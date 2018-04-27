@@ -83,7 +83,7 @@ namespace Consultorio_UH.Controllers
             sd.Doctores();
             sd.Servicios();
             for (int i = 0; sd.DMGlist.Count > i; i++)
-            { jresult.Add(new { nombre=sd.DMGlist[i].Text}); }
+            { jresult.Add(new { nombre=sd.DMGlist[i].Text, doctor_id = sd.DMGlist[i].Value }); }
 
            
 
@@ -100,7 +100,7 @@ namespace Consultorio_UH.Controllers
             sd.Doctores();
             sd.Servicios();
             for (int i = 0; sd.DNlist.Count > i; i++)
-            { jresult.Add(new { nombre = sd.DNlist[i].Text }); }
+            { jresult.Add(new { nombre = sd.DNlist[i].Text, doctor_id= sd.DNlist[i].Value }); }
 
 
 
