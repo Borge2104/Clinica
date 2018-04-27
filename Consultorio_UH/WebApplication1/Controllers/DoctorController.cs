@@ -85,18 +85,6 @@ namespace Consultorio_UH.Controllers
             m.ingreso();
             return RedirectToAction("Ingreso", "Doctor", new { preconsulta_id = m.id_preconsulta });
         }
-
-        [HttpPost]
-        public ActionResult prueba(string id)
-        {
-
-            var movies = new List<object>();
-
-            movies.Add(new { ID = id,Title = "Ghostbusters", Genre = "Comedy", Year = 1984 });
-            movies.Add(new { Title = "Gone with Wind", Genre = "Drama", Year = 1939 });
-            movies.Add(new { Title = "Star Wars", Genre = "Science Fiction", Year = 1977 });
-
-            return Json(movies, JsonRequestBehavior.AllowGet);
-        }
+        
     }
 }
