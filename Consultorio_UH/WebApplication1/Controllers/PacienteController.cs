@@ -73,5 +73,61 @@ namespace Consultorio_UH.Controllers
             c.MostrarCitasProgramadas();
             return View(c);
         }
+        // Webservices App
+
+        [HttpGet]
+        public ActionResult wbDoctores()
+        {
+            var jresult = new List<object>();
+            Servicios_Doctores sd = new Servicios_Doctores();
+            sd.Doctores();
+            sd.Servicios();
+            for (int i = 0; sd.DMGlist.Count > i; i++)
+            { jresult.Add(new { nombre=sd.DMGlist[i].Text}); }
+
+           
+
+            
+
+
+            return Json(jresult, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult wbNutricionistas()
+        {
+            var jresult = new List<object>();
+            Servicios_Doctores sd = new Servicios_Doctores();
+            sd.Doctores();
+            sd.Servicios();
+            for (int i = 0; sd.DNlist.Count > i; i++)
+            { jresult.Add(new { nombre = sd.DNlist[i].Text }); }
+
+
+
+
+
+
+            return Json(jresult, JsonRequestBehavior.AllowGet);
+        }
+
+        /* [HttpPost]
+         public ActionResult Solicitar_cita(int id_doctor, int id_servicio, DateTime fecha)
+         {
+             var jresult = new List<object>();
+             Citas c = new Citas();
+             c.servicio_id = id_servicio;
+             c.doctor_id = id_doctor;
+             c.fecha = fecha;
+             c.mostrar();           
+
+                 jresult.Add(new {});
+
+                 jresult.Add(new { });
+
+
+             return Json(jresult, JsonRequestBehavior.AllowGet);
+         }*/
+
+
     }
 }

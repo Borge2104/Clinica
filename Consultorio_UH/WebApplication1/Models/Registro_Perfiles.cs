@@ -249,7 +249,44 @@ namespace Consultorio_UH.Models
                         conn.Close();
                         break;
                     case "5":
-                       
+                        conn.Open();
+                        SqlCommand cmd_count5 = new SqlCommand("select  count(*) from doctor where usuario_id =" + id + ";", conn);
+                        SqlDataAdapter adap_count5 = new SqlDataAdapter(cmd_count5);
+                        adap_count5.Fill(count, "tabla");
+
+                        contar = Convert.ToInt32(count.Tables["tabla"].Rows[0][0]);
+
+                        if (contar != 0)
+                        {
+                            SqlCommand comprobar4 = new SqlCommand("select usuario_id from doctor where usuario_id='" + id + "';", conn);
+                            SqlDataAdapter adap4 = new SqlDataAdapter(comprobar4);
+                            adap4.Fill(dse, "tabla");
+                            try
+                            {
+                                comp = dse.Tables["tabla"].Rows[0]["usuario_id"].ToString();
+                                if (id.Equals(comp))
+                                {
+                                    conn.Close();
+                                }
+                                else
+                                {
+                                    SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id,servicio_id)values(" + id + ",1);", conn); ;
+                                    cmd4.ExecuteNonQuery();
+
+                                    conn.Close();
+                                }
+                            }
+                            catch (SqlException ex) { }
+                        }
+                        else
+                        {
+                            SqlCommand cmd4 = new SqlCommand("Insert into doctor(usuario_id,servicio_id)values(" + id + ",2);", conn); ;
+                            cmd4.ExecuteNonQuery();
+                            conn.Close();
+                        }
+
+                        conn.Close();
+                        break;
                     default:
                         conn.Close();
                         break;
