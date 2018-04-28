@@ -7339,6 +7339,7 @@
     <Content Include="Views\Nutri\Citas.cshtml" />
     <Content Include="Views\Nutri\Ingreso.cshtml" />
     <Content Include="Views\Nutri\MostrarCitas.cshtml" />
+    <Content Include="Views\Nutri\Ingreso2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

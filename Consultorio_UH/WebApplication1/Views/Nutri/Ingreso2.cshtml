@@ -1,22 +1,46 @@
-﻿@model Consultorio_UH.Models.Nutricion_consulta
+﻿@using System.Web.Optimization;
+@model Consultorio_UH.Models.Nutricion_consulta
 
 @{
-    ViewBag.Title = "Ingreso";
-    Layout = "~/Views/Shared/Master_Nutri.cshtml";
+    ViewBag.Title = "Registro_Preconsulta";
+    Layout = "~/Views/Shared/Master_Asistente.cshtml";
 }
 
 <section class="content">
- 
-        <div class="row">
+    <div class="row">
         <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-@Html.ValidationSummary(true, String.Empty, new { @style = "color:green;!important" })
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
 
-@using (Html.BeginForm("Ingreso", "Nutri", FormMethod.Post, new { @class = "form-horizontal" }))
-{
-    @Html.AntiForgeryToken();
-                    <div class="box box-info">
+    <div class="row">
+        <!-- left column -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-12" style="padding-left: 70px; padding-right: 70px;">
+            <!-- Horizontal Form -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Preconsulta</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-body">
+                    @Html.ValidationSummary(true, String.Empty, new { @style = "color:green;!important" })
+                    <form action="" method="post"></form>
+                    @using (Html.BeginForm("Ingreso2", "Nutri", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                           <div class="box box-info">
                         <div class="box-header with-border">
                             <h3 class="box-title">Datos Generales</h3>
                         </div>
@@ -29,22 +53,25 @@
                                 <label class="col-sm-2 control-label" style="width: 120px;">Paciente</label>
                                 @Html.TextBoxFor(id => id.preconsulta_id, new { @class = "form-control", style = "display:none;" })
                                 <div class="col-sm-10">
-                                    @Html.TextBoxFor(id => id.paciente, new { @class = "form-control", placeholder = "kg", style = "width: 156px;", disabled = "disabled" })
+                                    @Html.TextBoxFor(id => id.paciente, new { @class = "form-control", placeholder = "kg", style = "width: 156px;"})
+                         
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-2 control-label" style="width: 120px;">Genero</label>
 
                                 <div class="col-sm-10">
-                                    @Html.TextBoxFor(id => id.genero, new { @class = "form-control", placeholder = "kg", style = "width: 156px;", disabled = "disabled" })
+                                    @Html.TextBoxFor(id => id.genero, new { @class = "form-control", placeholder = "kg", style = "width: 156px;"})
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" style="width: 120px;">Edad</label>
 
                                 <div class="col-sm-10">
-                                    @Html.TextBoxFor(id => id.Edad, new { @class = "form-control", placeholder = "Años", style = "width: 156px;", disabled = "disabled" })
-                                    @*<input class="form-control" id="Edad" onchange="Estimacion_Talla()"  placeholder="Años" style="width: 176px;" disabled="disabled">*@
+                                    @Html.TextBoxFor(id => id.Edad, new { @class = "form-control", placeholder = "Años", style = "width: 156px;"})
+                                                                
+    @*<input class="form-control" id="Edad" onchange="Estimacion_Talla()"  placeholder="Años" style="width: 176px;" disabled="disabled">*@
 
                                 </div>
 
@@ -53,8 +80,10 @@
                                 <label class="col-sm-2 control-label" style="width: 120px;">Peso Actual</label>
 
                                 <div class="col-sm-10">
-                                    @Html.TextBoxFor(id => id.peso, new { @class = "form-control", placeholder = "kg", style = "width: 156px;", disabled = "disabled" })
-                                    @*<input  class="form-control" id="Peso_Actual" onchange="Calcular_IMC()" placeholder="kg" style="width: 176px;" disabled="disabled">*@
+                                    @Html.TextBoxFor(id => id.peso, new { @class = "form-control", placeholder = "kg", style = "width: 156px;", })
+                                    @Html.ValidationMessageFor(x => x.peso, String.Empty, new { @style = "color:red;!important" })
+                                    
+                                     @*<input  class="form-control" id="Peso_Actual" onchange="Calcular_IMC()" placeholder="kg" style="width: 176px;" disabled="disabled">*@
                                 </div>
                             </div>
                             <div class="form-group">
@@ -62,6 +91,8 @@
 
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(id => id.peso_usual, new { @class = "form-control", placeholder = "kg", style = "width: 156px;" })
+                                    @Html.ValidationMessageFor(x => x.peso_usual, String.Empty, new { @style = "color:red;!important" })
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,6 +106,7 @@
                                    style = "width: 156px;",
                                    onchange = "Estructura_corporal()"
                                })
+                                   @Html.ValidationMessageFor(x => x.circun_muneca, String.Empty, new { @style = "color:red;!important" })
                                     @*<input class="form-control" id="Circunferencia_M" placeholder="cm" onchange="Estructura_corporal()" style="width: 176px;">*@
                                 </div>
                             </div>
@@ -89,6 +121,7 @@
                                    style = "width: 156px;",
                                    onchange = "Estimacion_Talla()"
                                })
+                                    @Html.ValidationMessageFor(x => x.Altura_rod, String.Empty, new { @style = "color:red;!important" })
                                     @*<input class="form-control" id = "Altura_Rodilla" onchange="Estimacion_Talla()" placeholder="cm" style="width: 176px;">*@
                                 </div>
                             </div>
@@ -103,6 +136,7 @@
                                    style = "width: 156px;",
                                    onchange = "Estimacion_Talla()"
                                })
+                                    @Html.ValidationMessageFor(x => x.circun_braquial, String.Empty, new { @style = "color:red;!important" })
                                     @*<input class="form-control" id = "Circun_Braquial"  onchange="Estimacion_Talla()"  placeholder="cm" style="width: 176px;">*@
                                 </div>
                             </div>
@@ -111,6 +145,7 @@
 
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(id => id.circun_abdominal, new { @class = "form-control", placeholder = "kg", style = "width: 156px;" })
+                                    @Html.ValidationMessageFor(x => x.circun_abdominal, String.Empty, new { @style = "color:red;!important" })
                                 </div>
                             </div>
                             <div class="form-group">
@@ -118,6 +153,8 @@
 
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(id => id.circun_Cadera, new { @class = "form-control", placeholder = "kg", style = "width: 156px;" })
+                                    @Html.ValidationMessageFor(x => x.circun_Cadera, String.Empty, new { @style = "color:red;!important" })
+                                    circun_braquial
                                 </div>
                             </div>
                             <div class="form-group">
@@ -125,6 +162,7 @@
 
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(id => id.porc_grasa, new { @class = "form-control", placeholder = "kg", style = "width: 156px;" })
+                                    @Html.ValidationMessageFor(x => x.porc_grasa, String.Empty, new { @style = "color:red;!important" })
                                 </div>
                             </div>
                         </div>
@@ -518,38 +556,19 @@
                         </div>
                         <!-- /.box-footer -->
                     </div>
-}
+                   
+                    }
                 </div>
-
-
-        <!--/.col (left) -->
-
-        <!-- right column -->
-                <div class="col-md-6">
-                    <!-- Horizontal Form -->
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Interpretacion</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                 
-                            <div class="box-body">
-
-                            </div>
-                            <!-- /.box-body -->
-                            <img class="img-responsive" src="~/Content/dist/img/inter.png" alt="Photo">
-                            <!-- /.box-footer -->
-                    
-                    </div>
-                    <!-- /.box -->
-                </div>
-        <!--/.col (right) -->
-            }
-
+            </div>
+            <!-- /.box -->
+            <!-- general form elements disabled -->
+            <!-- /.box -->
         </div>
-        <!-- /.row -->
+        <!--/.col (right) -->
+    </div>
 
+
+    <!-- /.row -->
     <script type="text/javascript">
         var genero = "@Model.genero";
         function Estructura_corporal() {
@@ -695,14 +714,4 @@
 
     </script>
 </section>
-
-
-
-
-
-
-
-
-
-
 

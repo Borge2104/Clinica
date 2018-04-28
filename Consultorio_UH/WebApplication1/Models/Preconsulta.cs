@@ -54,6 +54,7 @@ namespace Consultorio_UH.Models
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
             adap.Fill(ds);
             conn.Close();
+            
             return ds;
 
         }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Consultorio_UH.Models;
 using System.Globalization;
 using Consultorio_UH.Security;
+using System.Data;
 
 namespace Consultorio_UH.Controllers
 {
@@ -38,34 +39,28 @@ namespace Consultorio_UH.Controllers
             return View(p);
 
         }
-        public ActionResult Ingreso(/*int preconsulta_id*/)
+        [HttpGet]
+        public ActionResult Ingreso2(int preconsulta_id)
         {
-            /* Doctor d = new Doctor();
-             d.id_preconsulta = preconsulta_id;
+             Nutricion_consulta n = new Nutricion_consulta();
+             n.preconsulta_id = preconsulta_id;
              Preconsulta s = new Preconsulta();
-             d.ds = s.buscar(preconsulta_id);
-             if (d.ds.Rows[0][6].ToString() != "-1")
-             {
-                 d.id = Convert.ToInt32(d.ds.Rows[0][5].ToString());
-             }
-             return View(d);*/
-
-            return View();
+             DataTable pr = s.buscar(preconsulta_id);
+           n.paciente = pr.Rows[0][1].ToString();
+            n.peso = Convert.ToDecimal(pr.Rows[0][3].ToString());
+            n.Edad = pr.Rows[0][7].ToString();
+            n.genero = pr.Rows[0][8].ToString();
+            return View(n);
 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [CustomAutorizarAtributos(Roles = "5")]
-        public ActionResult Ingreso(Preconsulta p)
+        public ActionResult Ingreso2(Nutricion_consulta n)
         {
-            if (ModelState.IsValid)
-            {
-                p.fecha = DateTime.Now;
-                p.asistente_id = Convert.ToInt32(Sesion_persistente.Rol_id);
-                p.ingreso();
-                return RedirectToAction("MostrarCitas", "Doctor");
-            }
-            return View();
+                n.fecha = DateTime.Now;
+                n.ingreso();
+                return RedirectToAction("MostrarCitas", "Nutri");
         }
     }
 }
